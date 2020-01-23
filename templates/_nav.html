@@ -1,0 +1,15 @@
+<nav class="navbar bg-light">
+  <div class="container">
+    <a href="/" class="navbar-brand">Restaurant</a>
+    <ul class="navbar-nav">
+      {% if current_user is defined %}
+        <li class="navbar-item"><a href="/users" class="nav-link">Users</a></li>
+      {% endif %}
+    </ul>
+    <ul class="nav navbar-nav ml-auto">
+      {% if current_user is defined %}
+        <li class="navbar-item"><a href="/sessions/destroy" class="nav-link">Logout</a></li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>

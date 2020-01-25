@@ -1,6 +1,13 @@
 # Ignore macOS .DS_Store
 .DS_Store
 
+# Ignore Windows cache files
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+[Dd]esktop.ini
+
 # Ignore local virtualenv, pycache files
 env/
 __pycache__/

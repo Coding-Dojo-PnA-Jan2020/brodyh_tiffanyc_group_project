@@ -11,8 +11,8 @@ class Menuitem(Base):
     __tablename__ = 'menuitems'
 
     name         = db.Column(db.String(128), nullable = False)
-    description  = db.Column(db.Float(), nullable = False)
-    price        = db.Column(db.String(128), nullable = False)
+    description  = db.Column(db.String(128), nullable = False)
+    price        = db.Column(db.Float(), nullable = False)
 
     def __init__(self, name, description, price):
         self.name         = name

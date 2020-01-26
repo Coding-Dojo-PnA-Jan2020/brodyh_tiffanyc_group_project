@@ -15,6 +15,7 @@ class User(Base):
     email      = db.Column(db.String(128), nullable = False)
     phone      = db.Column(db.String(128), nullable = False, unique = True)
     password   = db.Column(db.String(192), nullable = False)
+    is_admin   = db.Column(db.Boolean(), nullable = False, default = False)
 
     def __init__(self, first_name, last_name, email, phone, password):
         self.first_name = first_name

@@ -17,7 +17,7 @@ def create():
     user = User.query.filter_by(email = form.email.data).first()
     if user and check_password_hash(user.password, form.password.data):
         session['user_id'] = user.id
-        flash(f'Welcome back {user.first_name}!')
+        flash(f'Welcome back {user.first_name}!', 'main')
         return redirect(url_for('menuitems.index'))
     flash('Incorrect email or password', 'form_errors')
     return render_template('sessions/new.html', form = form)

@@ -1,11 +1,14 @@
 {% if menuitems|length > 0 %}
   <div class="row">
     {% for menuitem in menuitems %}
-      <div class="col-sm-6 col-md-4 col-lg-3">
-        <a href="/menuitems/{{ menuitem.id }}" class="menuitem-link">
-          <h2 class="h4 menuitem-title">{{ menuitem.title }}</h2>
-          <img src="https://via.placeholder.com/300x150.png?text=Photo" alt="{{ menuitem.name }}" class="img img-responsive rounded w-100">
-        </a>
+      <div class="col-sm-6 col-md-4 mb-4">
+        <div class="bg-light rounded">
+          <img src="https://via.placeholder.com/300x300.png?text=Photo" alt="{{ menuitem.name }}" class="img img-responsive rounded w-100">
+          <div class="mt-2">
+            <h2 class="h5 w-100">{{ menuitem.name }} <a href="/cart/menuitems/{{ menuitem.id }}/add" class="btn btn-dark pull-right">Order</a></h2>
+            <p>{{ menuitem.description }}</p>
+          </div>
+        </div>
       </div>
     {% endfor %}
   </div>

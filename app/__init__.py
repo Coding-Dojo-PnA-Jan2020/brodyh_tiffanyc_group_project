@@ -29,7 +29,5 @@ def current_user():
         from app.mod_users.models import User
         user = User.query.filter_by(id = session.get('user_id')).first()
         if not user == None:
-            print(dict(current_user = user))
             return dict(current_user = user)
-    print(dict(current_user = None))
     return dict(current_user = None)

@@ -13,17 +13,20 @@ def not_found(error):
 
 from app.mod_pages.controllers import mod_pages as pages_module
 from app.mod_sessions.controllers import mod_sessions as sessions_module
+from app.mod_users.controllers import mod_users as users_module
 
 app.register_blueprint(pages_module)
 app.register_blueprint(sessions_module)
+app.register_blueprint(users_module)
 
 db.create_all()
 
 @app.context_processor
 def current_user():
     if session.get('user_id'):
+        from app.mod_users.models import User
         user = User.query.filter_by(id = session.get('user_id')).first()
-        if user:
+        if not user == None:
             print(dict(current_user = user))
             return dict(current_user = user)
     print(dict(current_user = None))

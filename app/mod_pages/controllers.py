@@ -4,4 +4,5 @@ mod_pages = Blueprint('pages', __name__, url_prefix = '/')
 
 @mod_pages.route('')
 def welcome():
-    return render_template('pages/welcome.html')
+    return render_template('pages/index.html')
+

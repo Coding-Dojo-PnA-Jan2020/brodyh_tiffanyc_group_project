@@ -11,7 +11,10 @@ Bootstrap(app)
 def not_found(error):
     return render_template('404.html'), 404
 
+from app.mod_pages.controllers import mod_pages as pages_module
 from app.mod_sessions.controllers import mod_sessions as sessions_module
+
+app.register_blueprint(pages_module)
 app.register_blueprint(sessions_module)
 
 db.create_all()

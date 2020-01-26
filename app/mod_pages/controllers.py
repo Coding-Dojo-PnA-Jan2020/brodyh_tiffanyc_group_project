@@ -12,24 +12,24 @@ def render_main_menu():
 
 @mod_pages.route('/menu/appetizers')
 def render_menu_appetizers():
-    return render_template('pages/menu_appetizers.html')
+    return render_template('pages/menu-appetizers.html')
 
-@mod_pages.route('/menu/soups_salads')
+@mod_pages.route('/menu/soups-salads')
 def render_menu_soups_salads():
-    return render_template('pages/menu_soups_salads.html')
+    return render_template('pages/menu-soups-salads.html')
 
-@mod_pages.route('/menu/signature_dishes')
+@mod_pages.route('/menu/signature-dishes')
 def render_menu_main_dishes():
-    return render_template('pages/menu_main_dishes.html')
+    return render_template('pages/menu-main-dishes.html')
 
 @mod_pages.route('/menu/desserts')
 def render_menu_desserts():
-    return render_template('pages/menu_desserts.html')
+    return render_template('pages/menu-desserts.html')
 
 @mod_pages.route('/menu/drinks')
 def render_menu_drinks():
-    return render_template('pages/menu_drinks.html')
+    return render_template('pages/menu-drinks.html')
 
-@mod_pages.route('/account_settings')
+@mod_pages.route('/my-account')
 def render_account_settings():
-    return render_template('pages/account_settings.html')
+    return render_template('pages/my-account.html')

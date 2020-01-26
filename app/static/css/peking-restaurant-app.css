@@ -1,11 +1,15 @@
 /* GLOBAL */
+.page-header {
+  border-bottom: none;
+}
 
-
+.pull-right {
+  float: right;
 }
 
 /* MAIN NAV */
 
-.
+
 
 
 
@@ -20,9 +24,6 @@
 
 
 
-
-
-}
 
 /* ACCOUNT SETTINGS */
 

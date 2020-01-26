@@ -29,3 +29,7 @@ def render_menu_desserts():
 @mod_pages.route('/menu/drinks')
 def render_menu_drinks():
     return render_template('pages/menu_drinks.html')
+
+@mod_pages.route('/account_settings')
+def render_account_settings():
+    return render_template('pages/account_settings.html')

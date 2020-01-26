@@ -2,13 +2,12 @@
   <div class="container">
     <a href="/" class="navbar-brand">Peking Restaurant</a>
     <ul class="navbar-nav">
-      {% if current_user is defined %}
-        <li class="navbar-item"><a href="/users" class="nav-link">Users</a></li>
-      {% endif %}
     </ul>
     <ul class="nav navbar-nav ml-auto">
-      {% if current_user is defined %}
-        <li class="navbar-item"><a href="/sessions/destroy" class="nav-link">Logout</a></li>
+      {% if current_user is not none %}
+        <li class="navbar-item"><a href="/users" class="nav-link">Account</a></li>
+      {% else %}
+        <li class="navbar-item"><a href="/sessions/new" class="nav-link">Sign in</a></li>
       {% endif %}
     </ul>
   </div>

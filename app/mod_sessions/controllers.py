@@ -7,7 +7,7 @@ from app.mod_sessions.models import User
 mod_sessions = Blueprint('sessions', __name__, url_prefix = '/sessions')
 
 @mod_sessions.route('/new', methods = ['GET', 'POST'])
-def signin():
+def new():
     form = LoginForm(request.form)
     if form.validate_on_submit():
         user = User.query.filter_by(email = form.email.data).first()
@@ -17,3 +17,8 @@ def signin():
             return redirect(url_for('welcome.home'))
         flash('Wrong email or password', 'error-message')
     return render_template('sessions/signin.html', form = form)
+
+@mod_sessions.route('/sessions/destroy', methods=['DELETE', 'GET'])
+def destroy_session():
+    session.clear()
+    return redirect('/sessions/new')

@@ -33,3 +33,10 @@ def render_menu_drinks():
 @mod_pages.route('/my-account')
 def render_account_settings():
     return render_template('pages/my-account.html')
+
+def root():
+    return redirect('/menu')
+
+@mod_pages.route('/about-us')
+def about():
+    return render_template('pages/about-us.html')

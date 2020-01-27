@@ -2,23 +2,27 @@ from flask import Blueprint, request, render_template, flash, g, session, redire
 from werkzeug import check_password_hash, generate_password_hash
 from app import db
 from app.mod_sessions.forms import LoginForm
-from app.mod_sessions.models import User
+from app.mod_users.models import User
 
 mod_sessions = Blueprint('sessions', __name__, url_prefix = '/sessions')
 
-@mod_sessions.route('/new', methods = ['GET', 'POST'])
+@mod_sessions.route('/new', methods = ['GET'])
 def new():
     form = LoginForm(request.form)
-    if form.validate_on_submit():
-        user = User.query.filter_by(email = form.email.data).first()
-        if user and check_password_hash(user.password, form.password.data):
-            session['user_id'] = user.id
-            flash(f'Welcome back {user.name}')
-            return redirect(url_for('welcome.home'))
-        flash('Wrong email or password', 'error-message')
-    return render_template('sessions/signin.html', form = form)
+    return render_template('sessions/new.html', form = form)
+
+@mod_sessions.route('/create', methods = ['POST'])
+def create():
+    form = LoginForm(request.form)
+    user = User.query.filter_by(email = form.email.data).first()
+    if user and check_password_hash(user.password, form.password.data):
+        session['user_id'] = user.id
+        flash(f'Welcome back {user.first_name}!', 'main')
+        return redirect(url_for('menuitems.index'))
+    flash('Incorrect email or password', 'form_errors')
+    return render_template('sessions/new.html', form = form)
 
 @mod_sessions.route('/sessions/destroy', methods=['DELETE', 'GET'])
-def destroy_session():
+def destroy():
     session.clear()
-    return redirect('/sessions/new')
+    return redirect('/')

@@ -8,9 +8,10 @@
     {# Flask-bootstrap is needed but provides an old v3.3.7 build, so let's load 4.0 instead #}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    {# Load our custom styles but render the page first #}
+    {# Load our custom styles and icons but dont' block page rendering (async) #}
     <link rel="preload" href="{{ url_for('static', filename = 'css/peking-restaurant-app.css') }}" as="style" onload="this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="{{ url_for('static', filename = 'css/peking-restaurant-app.css') }}"></noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" onload="this.rel='stylesheet'">
   </head>
 
   <body>

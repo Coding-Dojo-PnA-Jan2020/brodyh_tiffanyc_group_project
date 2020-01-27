@@ -1,5 +1,4 @@
 from flask import Blueprint, request, render_template, flash, g, session, redirect, url_for
-from werkzeug import check_password_hash, generate_password_hash
 from app import db
 from app.mod_menuitems.forms import MenuitemForm
 from app.mod_menuitems.models import Menuitem
@@ -7,7 +6,6 @@ from app.mod_menuitems.models import Menuitem
 mod_menuitems = Blueprint('menuitems', __name__, url_prefix = '/menu')
 
 def require_admin():
-    admin = False
     if session.get('user_id'):
         from app.mod_users.models import User
         user = User.query.filter_by(id = session.get('user_id')).first()

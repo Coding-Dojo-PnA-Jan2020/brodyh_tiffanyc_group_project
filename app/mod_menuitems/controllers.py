@@ -6,7 +6,6 @@ from app.mod_menuitems.models import Menuitem
 mod_menuitems = Blueprint('menuitems', __name__, url_prefix = '/menu')
 
 def require_admin():
-    admin = False
     if session.get('user_id'):
         from app.mod_users.models import User
         user = User.query.filter_by(id = session.get('user_id')).first()

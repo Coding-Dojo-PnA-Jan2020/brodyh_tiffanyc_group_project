@@ -3,8 +3,12 @@ from flask import Blueprint, request, render_template, flash, g, session, redire
 mod_pages = Blueprint('pages', __name__, url_prefix = '/')
 
 @mod_pages.route('')
-def welcome():
-    return render_template('pages/index.html')
+def root():
+    return redirect('/menu')
+
+@mod_pages.route('/about-us')
+def about():
+    return render_template('pages/about-us.html')
 
 @mod_pages.route('/menu')
 def render_main_menu():
@@ -33,10 +37,3 @@ def render_menu_drinks():
 @mod_pages.route('/my-account')
 def render_account_settings():
     return render_template('pages/my-account.html')
-
-def root():
-    return redirect('/menu')
-
-@mod_pages.route('/about-us')
-def about():
-    return render_template('pages/about-us.html')

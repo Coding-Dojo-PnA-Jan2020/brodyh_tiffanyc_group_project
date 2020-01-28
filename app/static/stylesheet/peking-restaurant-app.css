@@ -1,0 +1,96 @@
+/* GLOBAL */
+/* css reset */
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	line-height: 1.5;
+}
+
+h1, h2, h3 {
+  font-family: 'Acme', sans-serif;
+}
+
+.page-header {
+  border-bottom: none;
+}
+
+.pull-right {
+  float: right;
+}
+
+
+/* MAIN NAV */
+
+
+
+
+/* FOOTER */
+.footer {
+  background-color:rgb(49, 49, 49);
+  color: #fdfdfd;
+}
+
+.footer a{
+  color: #fdfdfd;
+  text-decoration: underline;
+}
+
+.footer a:hover{
+  color: #93A603;
+}
+
+.footer li{
+  display: inline-block;
+  list-style: none;
+}
+
+.social, 
+.reviews, 
+.footer-contact {
+  display: inline-block;
+  vertical-align: top;
+  width: 32%;
+  margin: 30px 5px;
+}
+
+.fab{
+  margin: 5px;
+}
+
+.fas{
+  margin-right: 12px;
+}
+
+.footer-company-details {
+  text-align: center;
+  }
+
+.attribution {
+  background-color: #0D0D0D;
+  color: #bbbbbb;
+  font-size: 11px;
+  padding-top: 3px;
+  text-align: center;
+}
+
+.attribution a{
+  color: #bbbbbb;
+}
+
+
+/*  MENU*/
+
+
+
+
+
+
+
+
+/* OVERRIDE */
+

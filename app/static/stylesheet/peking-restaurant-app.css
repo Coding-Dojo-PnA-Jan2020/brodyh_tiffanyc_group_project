@@ -15,6 +15,12 @@ h1, h2, h3 {
   font-family: 'Acme', sans-serif;
 }
 
+/* Map pin, address and phone icons */
+.fas{
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
 .page-header {
   border-bottom: none;
 }
@@ -24,8 +30,25 @@ h1, h2, h3 {
 }
 
 
+
 /* MAIN NAV */
 
+
+
+/* ADDRESS BANNER */
+.address-banner {
+  background-color: #AB1F2B;
+  color: #fdfdfd;
+  padding: 5px;
+}
+
+.address-banner p{
+  margin: 0px;
+}
+
+.address-banner a{
+  color: #fdfdfd;
+}
 
 
 
@@ -58,12 +81,9 @@ h1, h2, h3 {
   margin: 30px 5px;
 }
 
+/* Social media icons */
 .fab{
   margin: 5px;
-}
-
-.fas{
-  margin-right: 12px;
 }
 
 .footer-company-details {

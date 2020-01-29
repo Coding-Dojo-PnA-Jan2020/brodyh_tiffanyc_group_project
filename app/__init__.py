@@ -31,3 +31,9 @@ def current_user():
         if not user == None:
             return dict(current_user = user)
     return dict(current_user = None)
+
+@app.context_processor
+def cart_menuitem_ids():
+    if 'cart_menuitem_ids' not in session:
+        session['cart_menuitem_ids'] = []
+    return dict(cart_menu_item_ids = session['cart_menuitem_ids'])

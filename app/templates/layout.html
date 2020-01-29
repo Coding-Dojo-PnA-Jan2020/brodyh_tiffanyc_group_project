@@ -5,14 +5,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block head_title %}{% endblock %} — Peking Restaurant</title>
+
+    {# Load our base styles but block rendering - essential base stylesheets #}
     {# Flask-bootstrap is needed but provides an old v3.3.7 build, so let's load 4.0 instead #}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet/peking-restaurant-app.css') }}"">
 
     {# Load our custom styles and icons but dont' block page rendering (async) #}
-    <link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
-    <link rel="preload" href="{{ url_for('static', filename='stylesheet/peking-restaurant-app.css') }}" as="style" onload="this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="{{ url_for('static', filename='stylesheet/peking-restaurant-app.css') }}"></noscript>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" onload="this.rel='stylesheet'">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Acme&display=swap" crossorigin="anonymous" onload="this.rel='stylesheet'">
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" onload="this.rel='stylesheet'">
+    {# For non-JavaScript clients #}
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Acme&display=swap" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous">
+    </noscript>
   </head>
 
   <body>

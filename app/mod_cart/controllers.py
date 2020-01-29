@@ -24,6 +24,7 @@ def add(id):
     cart_menuitem_ids = session['cart_menuitem_ids']
     cart_menuitem_ids.append(id)
     session['cart_menuitem_ids'] = cart_menuitem_ids
+    print(session['cart_menuitem_ids'])
 
     # Todo: Redirect to category
     return redirect('/')

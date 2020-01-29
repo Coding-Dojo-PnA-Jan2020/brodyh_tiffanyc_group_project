@@ -17,7 +17,7 @@ def checkout():
     return render_template('cart/checkout.html')
 
 @mod_cart.route('/add/?menuitem=<id>', methods = ['POST'])
-def add_to_cart(id):
+def add(id):
     if 'cart_menuitem_ids' not in session:
         session['cart_menuitem_ids'] = []
 
@@ -29,7 +29,7 @@ def add_to_cart(id):
     return redirect('/')
 
 @mod_cart.route('/remove/?menuitem=<id>', methods = ['POST', 'DELETE'])
-def remove_from_cart(id):
+def remove(id):
     # Todo: Check over this
     if 'cart_menuitem_ids' not in session:
         session['cart_menuitem_ids'] = []

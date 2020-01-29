@@ -12,7 +12,7 @@
       {% else %}
         <li class="navbar-item"><a class="p-2 nav-link text-dark" href="/sessions/new">Sign In</a></li>
       {% endif %}
-      <li class="navbar-item"><a class="p-2 nav-link text-dark" href="/cart/checkout"> {{ cart_menuitem_ids|count }} Items </a></li>
+      <li class="navbar-item"><a class="p-2 nav-link text-dark" href="/cart/checkout"> {{ menuitem_ids }} Items <img src="{{url_for('static', filename='assets/icons/order.svg')}}" alt="Shopping cart"></a></li>
     </ul>
   </div>
 </nav>

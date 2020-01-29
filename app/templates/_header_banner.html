@@ -1,31 +1,18 @@
-<div class="header-banner">
+<div class="header-banner navbar navbar-expand">
   <div class="container">
     <div class="header-contact">
       <p><i class="fas fa-map-marker-alt"></i>2630 Hegal Place, Alexandria, Virginia, 23242 &nbsp &nbsp | <a href="tel:555-867-5309"><i class="fas fa-phone"></i>555-867-5309</a></p>
     </div>
     <div class="header-account">
       <ul class="navbar-nav">
+        <li class="order navbar-item"><a class="nav-link" href="/users/new">ORDER NOW</a></li>
         {% if current_user is not none %}
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="fas fa-user-circle"></i>{{ current_user.first_name }} {{ current_user.last_name }}
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a href="{{ url_for('users.me') }}" class="dropdown-item">
-                <i class="fas fa-list"></i>ACCOUNT</a>
-              <a href="#" class="dropdown-item">
-                <i class="fas fa-credit-card"></i>ORDERS
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="{{ url_for('sessions.destroy') }}" class="dropdown-item">
-                <i class="fas fa-sign-out-alt"></i>SIGN OUT
-              </a>
-            </div>
-          </li>
+          <li class="my-account navbar-item"><a class="nav-link" href="/my-account">MY ACCOUNT</a></li>
         {% else %}
-          <li class="navbar-item"><a href="/sessions/new" class="nav-link">SIGN IN</a></li>
+          <li class="sign-in navbar-item"><a class="nav-link" href="/sessions/new">SIGN IN</a></li>
         {% endif %}
       </ul>
     </div>
   </div>
 </div>
+

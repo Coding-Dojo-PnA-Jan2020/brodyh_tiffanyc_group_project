@@ -37,31 +37,38 @@ h1, h2, h3 {
   padding: 10px;
 }
 
-.header-banner p{
+.header-banner p {
   margin: 0px;
 }
 
-.header-banner a{
+.header-banner a {
   color: #fdfdfd;
 }
 
-.header-banner a:hover{
+.header-banner a:hover {
   color: #93A603;
 }
 
 .header-contact, 
-.header-account{
+.header-account {
   display: inline-block;
-  width: 49%;
 }
 
-.header-account{
-  text-align: right;
+.header-account {
+  width: 300px;
+  float: right;
+}
+
+.order, 
+.my-account,
+.sign-in {
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 
 /* PRIMARY NAV */
-.navbar {
+.primary-nav {
   background-color: #fdfdfd;
 }
 
@@ -71,14 +78,14 @@ h1, h2, h3 {
   margin-top: 20px;
 }
 
-.navbar li a {
+.primary-nav li a {
   color: #8E0404;
   font-size: 18px;
   font-weight: bold;
   margin: 15px;
 }
 
-.navbar li a:hover {
+.primary-nav li a:hover {
   color: #313131;
 }
 
@@ -86,6 +93,7 @@ h1, h2, h3 {
   height: auto;
   width: 55px;
   margin-left: 10px;
+  margin-right: 50px;
 }
 
 .cart a{
@@ -153,9 +161,11 @@ h1, h2, h3 {
 
 
 
+/* MENU SUB-NAV */
 
 
 
+/* FORMS */
 
 
 /* OVERRIDE */

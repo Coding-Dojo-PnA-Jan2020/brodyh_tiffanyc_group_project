@@ -7,7 +7,7 @@
 
 body {
 	font-family: Arial, Helvetica, sans-serif;
-	font-size: 15px;
+	font-size: 14px;
 	line-height: 1.5;
 }
 
@@ -30,31 +30,77 @@ h1, h2, h3 {
 }
 
 
-
-/* MAIN NAV */
-
-
-
-/* ADDRESS BANNER */
-.address-banner {
-  background-color: #AB1F2B;
+/* HEADER BANNER */
+.header-banner {
+  background-color: #313131;
   color: #fdfdfd;
-  padding: 5px;
+  padding: 10px;
 }
 
-.address-banner p{
+.header-banner p{
   margin: 0px;
 }
 
-.address-banner a{
+.header-banner a{
   color: #fdfdfd;
 }
 
+.header-banner a:hover{
+  color: #93A603;
+}
+
+.header-contact, 
+.header-account{
+  display: inline-block;
+  width: 49%;
+}
+
+.header-account{
+  text-align: right;
+}
+
+
+/* PRIMARY NAV */
+.navbar {
+  background-color: #fdfdfd;
+}
+
+.logo img{
+  height: auto;
+  width: 325px;
+  margin-top: 20px;
+}
+
+.navbar li a {
+  color: #8E0404;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 15px;
+}
+
+.navbar li a:hover {
+  color: #313131;
+}
+
+.cart img {
+  height: auto;
+  width: 55px;
+  margin-left: 10px;
+}
+
+.cart a{
+  color: #93A603;
+  font-weight: bold;
+}
+
+.cart a:hover{
+  text-decoration: none;
+}
 
 
 /* FOOTER */
 .footer {
-  background-color:rgb(49, 49, 49);
+  background-color:#313131;
   color: #fdfdfd;
 }
 

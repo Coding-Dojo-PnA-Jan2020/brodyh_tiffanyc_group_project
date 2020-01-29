@@ -72,3 +72,16 @@ def create():
     else:
         flash(form.errors, 'form_errors')
     return render_template('menuitems/new.html', form = form)
+
+@mod_menuitems.route('/<id>/add', methods = ['POST'])
+def add_to_cart(id):
+    if 'cart_menuitem_ids' not in session:
+        session['cart_menuitem_ids'] = []
+
+    cart_menuitem_ids = session['cart_menuitem_ids']
+    cart_menuitem_ids.append(id)
+    session['cart_menuitem_ids'] = cart_menuitem_ids
+    print(session['cart_menuitem_ids'])
+
+    # Todo: Redirect to category
+    return redirect('/')

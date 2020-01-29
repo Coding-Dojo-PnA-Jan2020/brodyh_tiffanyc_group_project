@@ -12,4 +12,4 @@ def about():
 
 @mod_pages.route('/my-account')
 def render_account_settings():
-    return render_template('pages/my-account.html')
+    return redirect('/users/me')

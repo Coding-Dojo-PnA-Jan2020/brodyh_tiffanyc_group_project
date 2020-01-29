@@ -7,14 +7,14 @@
     </ul>
     {# ***I'd like to stick this section in the _header_banner.html, but don't want to mess anything up that is still in the works #}
     <ul class="nav navbar-nav">
-      <li clas="navbar-item"><a class="p-2 nav-link text-dark" href="/users/new">ORDER NOW</a></li>
+      <li clas="navbar-item"><a class="p-2 nav-link text-dark" href="{{ url_for('users.new') }}">ORDER NOW</a></li>
       {% if current_user is not none %}
-        <li class="navbar-item"><a class="p-2 nav-link text-dark" href="/my-account">MY ACCOUNT</a></li>
+        <li class="navbar-item"><a class="p-2 nav-link text-dark" href="{{ url_for('users.me') }}">MY ACCOUNT</a></li>
       {% else %}
-        <li class="navbar-item"><a class="p-2 nav-link text-dark" href="/sessions/new">SIGN IN</a></li>
+        <li class="navbar-item"><a class="p-2 nav-link text-dark" href="{{ url_for('sessions.new') }}">SIGN IN</a></li>
       {% endif %}
     </ul>
     {# I'd like to stick this section in the _header_banner.html *** #}
-    <div class="cart"><a href="/cart-checkout"> {{ menuitem_ids|count }} ITEMS <img src="{{url_for('static', filename='assets/icons/order-black.svg')}}" alt="Shopping cart"></a></div>
+    <div class="cart"><a href="{{ url_for('cart.checkout') }}"> {{ cart_menuitem_ids|count }} ITEMS <img src="{{url_for('static', filename='assets/icons/order-black.svg')}}" alt="Shopping cart"></a></div>
   </div>
 </nav>

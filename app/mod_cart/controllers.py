@@ -1,6 +1,8 @@
 from flask import Blueprint, request, render_template, flash, g, session, redirect, url_for
 from app import db
 from app.mod_menuitems.models import Menuitem
+from app.mod_orders.forms import CartToOrderForm
+from app.mod_orders.models import Order, OrderMenuitem
 
 mod_cart = Blueprint('cart', __name__, url_prefix = '/cart')
 
@@ -14,7 +16,12 @@ def index():
 
 @mod_cart.route('/checkout')
 def checkout():
-    return render_template('cart/checkout.html')
+    if 'cart_menuitem_ids' in session:
+        menuitems = Menuitem.query.filter(Menuitem.id.in_(session['cart_menuitem_ids'])).all()
+        form = CartToOrderForm(request.form)
+        return render_template('cart/checkout.html', menuitems = menuitems, form = form)
+    else:
+        return redirect(url_for('cart.index'))
 
 @mod_cart.route('/add/?menuitem=<id>', methods = ['POST'])
 def add(id):

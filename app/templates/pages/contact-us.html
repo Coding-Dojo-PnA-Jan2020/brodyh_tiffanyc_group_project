@@ -1,0 +1,62 @@
+{% extends 'layout.html' %}
+{% block head_title %}Contact Us{% endblock %}
+
+{% block content %}
+<div class="page-header">
+
+  {# Left - Contact Form and Map #}
+  <div class="contact-form-map">
+
+    {# Contact Form #}
+    <h2>Contact Us</h2>
+    <div class="contact-us-form">
+      <p>What's on your mind?</p>
+      <form class="form-container" action="#">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name" name="name">
+        </div>
+        <div>
+          <label for="email">Email Address</label>
+          <input type="text" class="form-control" id="email" name="email">
+        </div>
+        <div class="form-group">
+          <label for="comment">Comment</label>
+          <textarea class="form-control" id="comment" name="comment" rows="5"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">SUBMIT</button>
+      </form>
+    </div>
+
+    {# Map #}
+    <div class="map">
+
+    </div>
+  </div>
+
+  {# Right - Hours and Contact information #}
+  <div class="hours-contact">
+
+    {# Hours #}
+    <div class="hours">
+    <h3>HOURS</h3>
+    <p><b>Dine-in and Delivery:</b></p>
+    <p>Monday: 11:00am-9:00pm</p>
+    <p>Tuesday: 11:00am-9:00pm</p>
+    <p>Wednesday: 11:00am-9:00pm</p>
+    <p>Thursday: 11:00am-9:00pm</p>
+    <p>Friday: 11:00am-11:00pm</p>
+    <p>Saturday: 11:00am-11:00pm</p>
+    <p>Sunday: 11:00am-8:00pm</p>
+    </div>
+
+    {# Contact Information #}
+    <div class="main-contact">
+      <h3>CONTACT US</h3>
+      <p><i class="fas fa-map-marker-alt"></i>2630 Hegal Place, <br> Alexandria, Virginia, 23242</p>
+      <p><a href="tel:555-867-5309"><i class="fas fa-phone"></i>555-867-5309</a></p>
+      <p><a href="mailto:support@peking-restaurant.com"><i class="fas fa-envelope"></i>support@peking-restaurant.com</a></p>
+    </div>
+  </div>
+</div>
+{% endblock %}

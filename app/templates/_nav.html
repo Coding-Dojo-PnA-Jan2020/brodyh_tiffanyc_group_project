@@ -4,6 +4,7 @@
     <ul class="navbar-nav">
       <li class="nav-item"><a href="{{ url_for('pages.about') }}" class="nav-link">ABOUT US</a></li>
       <li class="nav-item"><a href="{{ url_for('menuitems.index') }}" class="nav-link">MENU</a></li>
+      <li class="nav-item"><a href="{{ url_for('pages.contact') }}" class="nav-link">CONTACT US</a></li>
     </ul>
     <div class="cart"><a href="{{ url_for('cart.index') }}"> {{ cart_menuitem_ids|count }} ITEMS <img src="{{url_for('static', filename='assets/icons/order-black.svg')}}" alt="Shopping cart"></a></div>
   </div>

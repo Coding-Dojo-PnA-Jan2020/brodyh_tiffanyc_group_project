@@ -1,19 +1,45 @@
 /* GLOBAL */
+
+/* Color Palette */
+/* Red: #8E0404, #D63834 */
+/* Yellow: #EFA348, #F7D772 */
+/* Green: #93A603 */
+/* White: #fdfdfd */
+/* Gray: #313131, #bbbbbb */
+/* Black: #0D0D0D */
+
+
+
 /* css reset */
 * {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
 }
 
 body {
+  display: flex;
+  flex-direction: column;
 	font-family: Arial, Helvetica, sans-serif;
-	font-size: 14px;
+  font-size: 0.875rem;
+  height: 100%;
 	line-height: 1.5;
 }
 
 h1, h2, h3 {
   font-family: 'Acme', sans-serif;
 }
+
+h2 {
+  color: #EFA348;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+
 
 /* Map pin, address and phone icons */
 .fas{
@@ -33,6 +59,7 @@ h1, h2, h3 {
 /* HEADER BANNER */
 .header-banner {
   background-color: #313131;
+  border-bottom: 5px solid #8E0404;
   color: #fdfdfd;
   padding: 10px;
 }
@@ -70,6 +97,7 @@ h1, h2, h3 {
 /* PRIMARY NAV */
 .primary-nav {
   background-color: #fdfdfd;
+  border-bottom: 1px solid #bbbbbb;
 }
 
 .logo img{
@@ -106,9 +134,56 @@ h1, h2, h3 {
 }
 
 
+
+/* MAIN CONTENT */
+.main-body {
+  background-image: url("../assets/img/ricepaper2.png");
+  background-repeat: repeat;
+  flex-grow: 1;
+  padding: 1rem;
+}
+
+.main-body p {
+  color: #313131;
+}
+
+.page-header {
+  text-align: center;
+}
+
+
+/*  MENU*/
+
+
+
+/* MENU SUB-NAV */
+.sub-nav {
+  background-color: #D63834;
+  margin-bottom: 30px;
+}
+
+
+.sub-nav li{
+  display: inline-block;
+  font-size: 1rem;
+  list-style: none;
+  padding: 0 55px;
+}
+
+.sub-nav a{
+  color: #fdfdfd;
+}
+
+.sub-nav a:hover {
+  font-weight: bold;
+}
+
+
+
 /* FOOTER */
 .footer {
   background-color:#313131;
+  border-top: 15px solid #8E0404;
   color: #fdfdfd;
 }
 
@@ -123,7 +198,6 @@ h1, h2, h3 {
 
 .footer li{
   display: inline-block;
-  list-style: none;
 }
 
 .social, 
@@ -152,21 +226,26 @@ h1, h2, h3 {
   text-align: center;
 }
 
+.attribution p{
+  margin-bottom: 0;
+}
+
 .attribution a{
   color: #bbbbbb;
 }
 
 
-/*  MENU*/
 
-
-
-/* MENU SUB-NAV */
 
 
 
 /* FORMS */
 
+/* ALERTS */
+
 
 /* OVERRIDE */
 
+.alert {
+  margin-bottom: 0;
+}

@@ -20,31 +20,31 @@ def index():
     menuitems = Menuitem.query.all()
     return render_template('menuitems/index.html', menuitems = menuitems)
 
-@mod_menuitems.route('/menu/appetizers')
+@mod_menuitems.route('/appetizers')
 def render_menu_appetizers():
     # Todo: Select menuitems belonging to category
     menuitems = Menuitem.query.all()
     return render_template('menuitems/menu-appetizers.html', menuitems = menuitems)
 
-@mod_menuitems.route('/menu/soups-salads')
+@mod_menuitems.route('/soups-salads')
 def render_menu_soups_salads():
     # Todo: Select menuitems belonging to category
     menuitems = Menuitem.query.all()
     return render_template('menuitems/menu-soups-salads.html', menuitems = menuitems)
 
-@mod_menuitems.route('/menu/signature-dishes')
+@mod_menuitems.route('/signature-dishes')
 def render_menu_main_dishes():
     # Todo: Select menuitems belonging to category
     menuitems = Menuitem.query.all()
     return render_template('menuitems/menu-main-dishes.html', menuitems = menuitems)
 
-@mod_menuitems.route('/menu/desserts')
+@mod_menuitems.route('/desserts')
 def render_menu_desserts():
     # Todo: Select menuitems belonging to category
     menuitems = Menuitem.query.all()
     return render_template('menuitems/menu-desserts.html', menuitems = menuitems)
 
-@mod_menuitems.route('/menu/drinks')
+@mod_menuitems.route('/drinks')
 def render_menu_drinks():
     # Todo: Select menuitems belonging to category
     menuitems = Menuitem.query.all()

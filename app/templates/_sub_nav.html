@@ -1,11 +1,12 @@
 <nav class="sub-nav navbar navbar-expand">
   <div class="container">
     <ul class="navbar-nav">
-      <li class="nav-item"><a href="{{ url_for('menuitems.render_menu_appetizers') }}" class="nav-link">Appetizers</a></li>
-      <li class="nav-item"><a href="{{ url_for('menuitems.render_menu_soups_salads') }}" class="nav-link">Soups & Salads</a></li>
-      <li class="nav-item"><a href="{{ url_for('menuitems.render_menu_main_dishes') }}" class="nav-link">Signature Dishes</a></li>
-      <li class="nav-item"><a href="{{ url_for('menuitems.render_menu_desserts') }}" class="nav-link">Desserts</a></li>
-      <li class="nav-item"><a href="{{ url_for('menuitems.render_menu_drinks') }}" class="nav-link">Drinks</a></li>
+      <li class="nav-item">
+        <a href="{{ url_for('menuitems.render_menu_appetizers') }}" class="nav-link {% if request.path =='/menu/appetizers'%}active{% endif %}">Appetizers</a></li>
+      <li class="nav-item"><a href="{{ url_for('menuitems.render_menu_soups_salads') }}" class="nav-link {% if request.path =='/menu/soups-salads'%}active{% endif %}">Soups & Salads</a></li>
+      <li class="nav-item"><a href="{{ url_for('menuitems.render_menu_main_dishes') }}" class="nav-link {% if request.path =='/menu/singature-dishes'%}active{% endif %}">Signature Dishes</a></li>
+      <li class="nav-item"><a href="{{ url_for('menuitems.render_menu_desserts') }}" class="nav-link {% if request.path =='/menu/desserts'%}active{% endif %}">Desserts</a></li>
+      <li class="nav-item"><a href="{{ url_for('menuitems.render_menu_drinks') }}" class="nav-link {% if request.path =='/menu/drinks'%}active{% endif %}">Drinks</a></li>
     </ul>
   </div>
 </nav>

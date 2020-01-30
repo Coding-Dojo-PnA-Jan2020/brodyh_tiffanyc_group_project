@@ -10,6 +10,10 @@ def root():
 def about():
     return render_template('pages/about-us.html')
 
+@mod_pages.route('/contact-us')
+def contact():
+    return render_template('pages/contact-us.html')
+
 @mod_pages.route('/my-account')
 def render_account_settings():
     return redirect('/users/me')

@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% block head_title %}Checkout{% endblock %}
+
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block content %}
+  <div class="page-header">
+    <h1>Order #{{ order.id }} Details</h1>
+  </div>
+
+  {# Models/Variables Available: #}
+  {#   payment.card_number #}
+  {#   order.deliver_by (actually the pickup time if order.is_delivery == False) #}
+
+  {% include 'orders/_show_many_menuitems.html' %}
+{% endblock %}

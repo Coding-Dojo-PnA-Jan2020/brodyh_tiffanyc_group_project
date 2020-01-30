@@ -1,9 +1,9 @@
 {% extends 'layout.html' %}
-{% block head_title %}Menu{% endblock %}
+{% block head_title %}Cart{% endblock %}
 
 {% block content %}
   <div class="page-header">
-    <h1>Menu</h1>
+    <h1>Cart</h1>
   </div>
   {% if current_user is defined %}
     <div class="btn-toolbar mb-4">
@@ -12,5 +12,10 @@
       </div>
     </div>
   {% endif %}
-  {% include 'menuitems/_show_many.html' %}
+
+  {% if menuitems|length > 0 %}
+    {% include 'cart/_show_many_menuitems.html' %}
+  {% else %}
+    {% include 'cart/_empty_cart.html' %}
+  {% endif %}
 {% endblock %}

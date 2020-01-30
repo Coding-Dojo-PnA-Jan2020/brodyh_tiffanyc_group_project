@@ -82,11 +82,10 @@ h2 {
 }
 
 .header-account {
-  width: 300px;
+  width: 100px;
   float: right;
 }
 
-.order, 
 .my-account,
 .sign-in {
   margin-left: 20px;
@@ -147,7 +146,7 @@ h2 {
   color: #313131;
 }
 
-.page-header {
+.page-header h2{
   text-align: center;
 }
 
@@ -175,7 +174,47 @@ h2 {
 }
 
 .sub-nav a:hover {
-  font-weight: bold;
+  text-decoration: underline;
+}
+
+.sub-nav a.active {
+  color: #F7D772;
+  text-decoration: underline;
+}
+
+
+
+/* CONTACT US*/
+.hours p {
+  margin-bottom: 0;
+}
+
+.contact-form-map {
+  display: inline-block;
+  width: 67%;
+}
+
+.hours-contact {
+  display: inline-block;
+  width: 32%;
+}
+
+
+.hours,
+.main-contact {
+  background-color: rgb(253, 253, 253, 0.75);
+  border-radius:5px;
+  margin: 10px;
+  padding: 20px;
+}
+
+.main-contact a{
+  color: #313131;
+  text-decoration: underline;
+}
+
+.main-contact a:hover{
+  color: #93A603;
 }
 
 
@@ -183,7 +222,7 @@ h2 {
 /* FOOTER */
 .footer {
   background-color:#313131;
-  border-top: 15px solid #8E0404;
+  border-top: 25px solid #8E0404;
   color: #fdfdfd;
 }
 

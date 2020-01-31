@@ -151,6 +151,38 @@ h2 {
 }
 
 
+/* Red: #8E0404, #D63834 */
+/* Yellow: #EFA348, #F7D772 */
+/* Green: #93A603 */
+/* White: #fdfdfd */
+
+/* ABOUT US */
+
+
+.order-cta {
+  background-color: #D63834;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px rgba(49, 49, 49, 0.5);
+  color: #fdfdfd;
+  padding: 20px;
+  
+}
+
+a.order-cta {
+  font-size: 1rem;
+  font-weight: bold;
+  left: 850px;
+  top: -100px;
+  position: relative;
+  z-index: 1;
+}
+
+a.order-cta:hover {
+  color: #F7D772;
+  text-decoration: none;
+}
+
+
 /*  MENU*/
 
 
@@ -160,7 +192,6 @@ h2 {
   background-color: #D63834;
   margin-bottom: 30px;
 }
-
 
 .sub-nav li{
   display: inline-block;

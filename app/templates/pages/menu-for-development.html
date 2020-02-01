@@ -1,0 +1,64 @@
+{% extends 'layout.html' %}
+{% block head_title %}Menu{% endblock %}
+
+{% block content %}
+  {% include '_sub_nav.html' %}
+  <div class="page-header">
+    <h2>MENU</h2>
+  </div>
+
+
+  {# ****************** Re-enable Content Between for Production
+    {% if current_user is defined and current_user.is_admin %}
+    <div class="btn-toolbar mb-4">
+      <div class="btn-group mr-2">
+        <a href="{{ url_for('menuitems.new') }}" class="btn btn-dark"><i class="fas fa-plus"></i> New</a>
+      </div>
+    </div>
+  {% endif %} 
+  {% include 'menuitems/_show_many.html' %}
+  Re-enable Content Between for Production ****************** #}
+
+<!-- Remove Content Between for Production -->
+<div class="menu-overview">
+  <div class="card">
+    <a href="{{ url_for('menuitems.render_menu_appetizers') }}">
+    <img class="card-img-top" src="../../static/assets/img/appetizers.jpg" alt="Appetizers"></a>
+    <div class="card-body">
+      <p class="card-text">Appetizers</p>
+    </div>
+  </div>
+  <div class="card">
+    <a href="{{ url_for('menuitems.render_menu_soups_salads') }}">
+    <img class="card-img-top" src="../../static/assets/img/chinese-soups.jpg" alt="Soups & Salads"></a>
+    <div class="card-body">
+      <p class="card-text">Soups & Salads</p>
+    </div>
+  </div>
+  <div class="card">
+    <a href="{{ url_for('menuitems.render_menu_main_dishes') }}">
+    <img class="card-img-top" src="../../static/assets/img/kung-pao-chicken.jpg" alt="Signature Dishes"></a>
+    <div class="card-body">
+      <p class="card-text">Signature Dishes</p>
+    </div>
+  </div>
+  <div class="card">
+    <a href="{{ url_for('menuitems.render_menu_desserts') }}">
+    <img class="card-img-top" src="../../static/assets/img/strawberry-almond-tofu-dessert.jpg" alt="Desserts"></a>
+    <div class="card-body">
+      <p class="card-text">Desserts</p>
+    </div>
+  </div>
+  <div class="card">
+    <a href="{{ url_for('menuitems.render_menu_drinks') }}">
+    <img class="card-img-top" src="../../static/assets/img/beverages.jpg" alt="Desserts"></a>
+    <div class="card-body">
+      <p class="card-text">Beverages</p>
+    </div>
+  </div>
+</div>
+
+<!-- Remove Content Between for Production -->
+
+
+{% endblock %}

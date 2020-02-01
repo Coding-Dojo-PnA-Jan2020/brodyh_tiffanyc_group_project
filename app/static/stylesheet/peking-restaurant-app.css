@@ -158,12 +158,43 @@ h2 {
 
 
 /*  MENU*/
+.card {
+  background-color: transparent;
+  border: none;
+  display: inline-block;
+  width: 31%;
+  margin: 10px;
+}
+
+.card a:hover {
+  text-decoration: none;
+}
+
+.card-body {
+  padding: 1.25rem 1.25rem 1.25rem 0;
+}
+
+.card-img-top {
+  border-radius: 0.25rem;
+  box-shadow: 0 0 10px rgba(49, 49, 49, 0.5);
+  height: auto;
+  width: 100%
+}
+
+.card-img-top:hover {
+  box-shadow: 0 0 0.5rem 0.25rem rgba(214, 56, 52, 0.5)
+}
+
+.card-text {
+  font-size: 1rem;
+  font-weight: bold;
+}
 
 
 
 /* MENU SUB-NAV */
 .sub-nav {
-  background-color: #D63834;
+  background-color: #d63834;
   margin-bottom: 30px;
 }
 
@@ -171,7 +202,7 @@ h2 {
   display: inline-block;
   font-size: 1rem;
   list-style: none;
-  padding: 0 55px;
+  padding: 0 54px;
 }
 
 .sub-nav a{
@@ -250,7 +281,7 @@ ul.day-of-week-hours {
   text-decoration: underline;
 }
 
-.footer a:hover{
+.footer a:hover {
   color: #93A603;
 }
 
@@ -301,7 +332,6 @@ ul.day-of-week-hours {
 /* FORMS */
 label {
   font-weight: bold;
-
 }
 
 

@@ -17,3 +17,9 @@ def contact():
 @mod_pages.route('/my-account')
 def render_account_settings():
     return redirect('/users/me')
+
+
+# DEVELOPMENT ROUTES: REMOVE ROUTES BELOW FOR PRODUCTION
+@mod_pages.route('/menu-for-development')
+def menu_for_development():
+    return render_template('pages/menu-for-development.html')

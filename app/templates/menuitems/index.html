@@ -14,4 +14,10 @@
     </div>
   {% endif %}
   {% include 'menuitems/_show_many.html' %}
+
+<!-- Remove Content Between for Production -->
+<a href="{{ url_for('pages.menu_for_development') }}" class="btn btn-dark">Development Menu</a>
+
+<!-- Remove Content Between for Production -->
+
 {% endblock %}

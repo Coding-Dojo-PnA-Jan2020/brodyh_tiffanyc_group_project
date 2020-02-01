@@ -22,7 +22,7 @@ def create():
             if user:
               session['user_id'] = user.id
               flash(f'Welcome back {user.first_name}!')
-              return redirect(url_for('pages.welcome'))
+              return redirect(url_for('pages.about'))
             else:
               flash('Database error', 'main_warning')
         else:

@@ -151,36 +151,10 @@ h2 {
 }
 
 
-/* Red: #8E0404, #D63834 */
-/* Yellow: #EFA348, #F7D772 */
-/* Green: #93A603 */
-/* White: #fdfdfd */
 
 /* ABOUT US */
 
 
-.order-cta {
-  background-color: #D63834;
-  border-radius: 5px;
-  box-shadow: 3px 3px 5px rgba(49, 49, 49, 0.5);
-  color: #fdfdfd;
-  padding: 20px;
-  
-}
-
-a.order-cta {
-  font-size: 1rem;
-  font-weight: bold;
-  left: 850px;
-  top: -100px;
-  position: relative;
-  z-index: 1;
-}
-
-a.order-cta:hover {
-  color: #F7D772;
-  text-decoration: none;
-}
 
 
 /*  MENU*/
@@ -236,12 +210,21 @@ a.order-cta:hover {
   width: 32%;
 }
 
-.hours,
+.open-hours,
 .main-contact {
   background-color: rgb(253, 253, 253, 0.75);
   border-radius:5px;
   margin: 10px;
   padding: 20px;
+}
+
+.highlight-day {
+  color: #D63834;
+  font-weight: bold;
+}
+
+ul.day-of-week-hours {
+  list-style-type: none;
 }
 
 .main-contact a{
@@ -315,16 +298,62 @@ a.order-cta:hover {
 
 
 
-
-
-
 /* FORMS */
+label {
+  font-weight: bold;
+
+}
+
+
+
+
+/* BUTTONS */
+
+.order-cta-btn, .form-submit-btn {
+  background-color: #D63834;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px rgba(49, 49, 49, 0.5);
+  color: #fdfdfd;
+  padding: 20px;
+}
+
+a.order-cta-btn {
+  font-size: 1rem;
+  font-weight: bold;
+  left: 850px;
+  top: -100px;
+  position: relative;
+  z-index: 1;
+}
+
+a.order-cta-btn:hover {
+  color: #F7D772;
+  text-decoration: none;
+}
+
+.form-submit-btn {
+  padding: 10px 20px;
+  margin-right: 20px;
+}
+
+.form-submit-btn:hover {
+  color: #F7D772;
+}
 
 /* ALERTS */
 
 
 /* OVERRIDE */
+.form-control {
+  width: 400px
+}
+
+.form-control:focus {
+  border-color: #D63834;
+  box-shadow: 0 0 0 0.2rem rgb(142, 4, 4, 0.25);
+}
 
 .alert {
   margin-bottom: 0;
 }
+

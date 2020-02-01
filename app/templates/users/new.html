@@ -5,7 +5,7 @@
 
 {% block content %}
 <div class="page-header">
-  <h1>Sign Up</h1>
+  <h2>Sign Up</h2>
 </div>
 
 <form method="post" action="{{ url_for('users.create') }}" accept-charset="utf-8" role="form">
@@ -28,7 +28,7 @@
   {{ wtf.form_field(form.password, class = 'form-control', placeholder = 'Password') }}
   {{ wtf.form_field(form.password_confirmation, class = 'form-control', placeholder = 'Password confirmation') }}
   <div class="form-group">
-    <input type="submit" value="Sign up" class="btn btn-primary mr-2">
+    <input type="submit" value="Sign up" class="btn form-submit-btn">
     <a href="{{ url_for('sessions.new') }}">Have an account?</a>
   </div>
 </form>

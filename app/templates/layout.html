@@ -52,6 +52,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr" integrity="sha384-UiZzAA+k9B6Xr4SykueV26lljeUk/hTx/fFNONRwB3Dt3dLDOXg8lQlbf/j8rB7B" crossorigin="anonymous"></script>
     <script src="{{ url_for('static', filename='js/flatpickr.js') }}"></script>
+    <script>
+      $(document).ready(function(){
+        $('.day-of-week-hours li:nth-child('+(((new Date().getDay()+6)%7)+1)+')').addClass('highlight-day')
+      });
+    </script>
   </body>
 
 </html>

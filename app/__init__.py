@@ -1,11 +1,15 @@
 from flask import Flask, render_template, redirect, session
 from flask_sqlalchemy import SQLAlchemy
 from flask_bootstrap import Bootstrap
+from flask_uploads import UploadSet, IMAGES, configure_uploads
 
 app = Flask(__name__)
 app.config.from_object('config')
 db = SQLAlchemy(app)
 Bootstrap(app)
+
+images = UploadSet('images', IMAGES)
+configure_uploads(app, images)
 
 @app.errorhandler(404)
 def not_found(error):

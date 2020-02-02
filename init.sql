@@ -7,6 +7,7 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+SELECT * FROM menuitems;
 
 DROP TABLE IF EXISTS `addresses`;
 CREATE TABLE `addresses` (
@@ -30,6 +31,8 @@ CREATE TABLE `categories` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `name` varchar(128) DEFAULT NULL,
+  `image_file_path` varchar(255) NOT NULL,
+  `image_url_path` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -40,6 +43,8 @@ CREATE TABLE `menuitems` (
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `name` varchar(255) NOT NULL,
   `description` text NOT NULL,
+  `image_file_path` varchar(255) NOT NULL,
+  `image_url_path` varchar(255) NOT NULL,
   `price` decimal(10,0) NOT NULL,
   `category_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),

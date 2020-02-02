@@ -6,7 +6,7 @@
         <div class="card-body">
           <h4 class="card-title">{{ menuitem.name }}</h4>
           <p class="card-text">{{ menuitem.description }}</p>
-          <p class="card-text"><b>{{ menuitem.price }}</b></p>
+          <p class="card-text"><b>{{ menuitem.price|pretty_price }}</b></p>
           <div class="card-footer-order">
             <form action="{{ url_for('cart.add', id = menuitem.id) }}" method="post">
               <input type="submit" value="Order" class="btn peking-button peking-button-order">

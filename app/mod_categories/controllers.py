@@ -20,7 +20,7 @@ def require_admin():
 
 @mod_categories.route('/')
 def index():
-    categories = Category.query.all()
+    categories = Category.query.order_by(Category.name).all()
     return render_template('categories/index.html', categories = categories)
 
 @mod_categories.route('/new')

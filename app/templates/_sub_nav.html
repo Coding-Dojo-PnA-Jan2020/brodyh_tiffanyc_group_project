@@ -1,21 +1,11 @@
 <nav class="sub-nav navbar navbar-expand">
   <div class="container">
     <ul class="navbar-nav">
-      <li class="nav-item">
-        <a href="{{ url_for('menuitems.render_menu_appetizers') }}" class="nav-link {% if request.path =='/menu/appetizers'%}active{% endif %}">Appetizers</a>
-      </li>
-      <li class="nav-item">
-        <a href="{{ url_for('menuitems.render_menu_soups_salads') }}" class="nav-link {% if request.path =='/menu/soups-salads'%}active{% endif %}">Soups & Salads</a>
-      </li>
-      <li class="nav-item">
-        <a href="{{ url_for('menuitems.render_menu_main_dishes') }}" class="nav-link {% if request.path =='/menu/signature-dishes'%}active{% endif %}">Signature Dishes</a>
-      </li>
-      <li class="nav-item">
-        <a href="{{ url_for('menuitems.render_menu_desserts') }}" class="nav-link {% if request.path =='/menu/desserts'%}active{% endif %}">Desserts</a>
-      </li>
-      <li class="nav-item">
-        <a href="{{ url_for('menuitems.render_menu_drinks') }}" class="nav-link {% if request.path =='/menu/drinks'%}active{% endif %}">Beverages</a>
-      </li>
+      {% for category in categories %}
+        <li class="nav-item">
+          <a href="{{ url_for('categories.show', name = category.name) }}" class="nav-link {% if request.path == '/menu/' + category.name %}active{% endif %}">{{ category.name }}</a>
+        </li>
+      {% endfor %}
     </ul>
   </div>
 </nav>

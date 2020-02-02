@@ -1,4 +1,5 @@
 from app import db
+from sqlalchemy.orm import relationship
 
 class Base(db.Model):
     __abstract__  = True
@@ -13,6 +14,7 @@ class Category(Base):
     name            = db.Column(db.String(128), nullable = False)
     image_file_path = db.Column(db.String(128), nullable = False)
     image_url_path  = db.Column(db.String(128), nullable = False)
+    menuitems       = relationship('Menuitem', back_populates = 'category')
 
     def __init__(self, name, image_file_path, image_url_path):
         self.name            = name

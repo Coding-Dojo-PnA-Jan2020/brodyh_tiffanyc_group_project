@@ -22,7 +22,7 @@
     {% endif %}
   {% endwith %}
   {{ wtf.form_field(form.name, class = 'form-control', placeholder = 'Name', autofocus = '') }}
-  {{ wtf.form_field(form.category_id, class = 'form-control', placeholder = 'Category') }}
+  {{ wtf.form_field(form.category, class = 'form-control', placeholder = 'Category') }}
   {{ wtf.form_field(form.image, class = 'form-control', placeholder = 'Photo') }}
   {{ wtf.form_field(form.description, class = 'form-control', placeholder = 'Description') }}
   {{ wtf.form_field(form.price, class = 'form-control', placeholder = 'Price') }}

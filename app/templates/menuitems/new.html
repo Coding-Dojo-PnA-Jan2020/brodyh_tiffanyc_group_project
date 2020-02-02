@@ -8,7 +8,7 @@
   <h2>New Menu Item</h2>
 </div>
 
-<form method="post" action="{{ url_for('menuitems.create') }}" accept-charset="utf-8" role="form">
+<form method="post" action="{{ url_for('menuitems.create') }}" accept-charset="utf-8" enctype="multipart/form-data" role="form">
   {{ form.csrf_token }}
   {% with errors = get_flashed_messages(category_filter = ['form_errors']) %}
     {% if errors %}
@@ -22,6 +22,7 @@
     {% endif %}
   {% endwith %}
   {{ wtf.form_field(form.name, class = 'form-control', placeholder = 'Name', autofocus = '') }}
+  {{ wtf.form_field(form.image, class = 'form-control', placeholder = 'Photo') }}
   {{ wtf.form_field(form.description, class = 'form-control', placeholder = 'Description') }}
   {{ wtf.form_field(form.price, class = 'form-control', placeholder = 'Price') }}
   <div class="form-group">

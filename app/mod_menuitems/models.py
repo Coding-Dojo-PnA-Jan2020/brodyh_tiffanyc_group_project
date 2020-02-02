@@ -10,14 +10,18 @@ class Base(db.Model):
 class Menuitem(Base):
     __tablename__ = 'menuitems'
 
-    name         = db.Column(db.String(128), nullable = False)
-    description  = db.Column(db.String(128), nullable = False)
-    price        = db.Column(db.Float(), nullable = False)
+    name            = db.Column(db.String(128), nullable = False)
+    description     = db.Column(db.String(128), nullable = False)
+    price           = db.Column(db.Float(), nullable = False)
+    image_file_path = db.Column(db.String(128), nullable = False)
+    image_url_path  = db.Column(db.String(128), nullable = False)
 
-    def __init__(self, name, description, price):
-        self.name         = name
-        self.description  = description
-        self.price        = price
+    def __init__(self, name, description, image_file_path, image_url_path, price):
+        self.name            = name
+        self.description     = description
+        self.image_file_path = image_file_path
+        self.image_url_path  = image_url_path
+        self.price           = price
 
     def __repr__(self):
         return '<Menuitem %r>' % (self.name)

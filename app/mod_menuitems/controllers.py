@@ -1,7 +1,9 @@
-from flask import Blueprint, request, render_template, flash, g, session, redirect, url_for
+from flask import Blueprint, request, render_template, flash, g, session, redirect, url_for, current_app
 from app import db
 from app.mod_menuitems.forms import MenuitemForm
 from app.mod_menuitems.models import Menuitem
+import os
+from werkzeug.utils import secure_filename
 
 mod_menuitems = Blueprint('menuitems', __name__, url_prefix = '/menu')
 
@@ -59,16 +61,21 @@ def new():
 @mod_menuitems.route('/create', methods = ['POST'])
 def create():
     require_admin()
-    form = MenuitemForm(request.form)
+    form = MenuitemForm()
+    print(form.image.data)
     if form.validate():
-        menuitem = Menuitem(form.name.data, form.description.data, form.price.data)
+        image = form.image.data
+        image_file_path = os.path.join(current_app.config['UPLOADED_IMAGES_DEST'], secure_filename(image.filename))
+        image_url_path = f"uploads/{secure_filename(image.filename)}"
+        image.save(image_file_path)
+        menuitem = Menuitem(form.name.data, form.description.data, image_file_path, image_url_path, form.price.data)
         db.session.add(menuitem)
         db.session.commit()
         if menuitem:
-          flash(f"Saved {menuitem.name}", 'main')
-          return redirect(url_for('menuitems.index'))
+            flash(f"Saved {menuitem.name}", 'main')
+            return redirect(url_for('menuitems.index'))
         else:
-          flash('Database error', 'main')
+            flash('Database error', 'main')
     else:
         flash(form.errors, 'form_errors')
     return render_template('menuitems/new.html', form = form)

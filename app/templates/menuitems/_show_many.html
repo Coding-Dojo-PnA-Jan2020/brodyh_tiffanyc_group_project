@@ -3,7 +3,7 @@
     {% for menuitem in menuitems %}
       <div class="col-sm-6 col-md-4 mb-4">
         <div class="bg-light rounded">
-          <img src="https://via.placeholder.com/300x300.png?text=Photo" alt="{{ menuitem.name }}" class="img img-responsive rounded w-100">
+          <img src="{{ url_for('static', filename = menuitem.image_url_path) }}" alt="{{ menuitem.name }}" class="img img-responsive rounded w-100">
           <div class="mt-2">
             <h2 class="h5 w-100">
               {{ menuitem.name }}

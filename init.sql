@@ -23,19 +23,18 @@ CREATE TABLE `addresses` (
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `addresses_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `categories`;
 CREATE TABLE `categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  `name` varchar(128) DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `image_file_path` varchar(255) NOT NULL,
   `image_url_path` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`),
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `menuitems`;
 CREATE TABLE `menuitems` (
@@ -45,13 +44,14 @@ CREATE TABLE `menuitems` (
   `name` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `image_file_path` varchar(255) NOT NULL,
-  `image_url_path` varchar(255) NOT NULL,
   `price` decimal(10,0) NOT NULL,
   `category_id` int(11) DEFAULT NULL,
+  `image_url_path` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
+  KEY `fk_menuitems_categories1` (`category_id`),
   CONSTRAINT `fk_menuitems_categories1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `order_menuitems`;
 CREATE TABLE `order_menuitems` (
@@ -66,7 +66,7 @@ CREATE TABLE `order_menuitems` (
   KEY `fk_orders_has_menu_items_orders1_idx` (`order_id`),
   CONSTRAINT `fk_orders_has_menu_items_menu_items1` FOREIGN KEY (`menuitem_id`) REFERENCES `menuitems` (`id`),
   CONSTRAINT `fk_orders_has_menu_items_orders1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `orders`;
 CREATE TABLE `orders` (
@@ -86,7 +86,7 @@ CREATE TABLE `orders` (
   KEY `fk_orders_payment_methods1_idx` (`payment_id`),
   CONSTRAINT `fk_orders_payment_methods1` FOREIGN KEY (`payment_id`) REFERENCES `payments` (`id`),
   CONSTRAINT `fk_orders_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `payments`;
 CREATE TABLE `payments` (
@@ -99,7 +99,7 @@ CREATE TABLE `payments` (
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `fk_payment_users1_idx` (`user_id`),
   CONSTRAINT `fk_payment_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `user_addresses`;
 CREATE TABLE `user_addresses` (
@@ -129,7 +129,7 @@ CREATE TABLE `users` (
   `is_admin` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 
 

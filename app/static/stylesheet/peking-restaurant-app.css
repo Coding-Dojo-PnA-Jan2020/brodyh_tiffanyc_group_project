@@ -153,17 +153,26 @@ h2 {
 
 
 /* ABOUT US */
+.hero img {
+  height: auto;
+  width: 100%;
+}
 
 
 
+/*  MENU */
+.menu-overview {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 
-/*  MENU*/
 .card {
   background-color: transparent;
   border: none;
-  display: inline-block;
+  margin: 15px 12px;
   width: 31%;
-  margin: 10px;
+  vertical-align: top;
 }
 
 .card a:hover {
@@ -171,25 +180,43 @@ h2 {
 }
 
 .card-body {
-  padding: 1.25rem 1.25rem 1.25rem 0;
+  padding: 1.25rem 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .card-img-top {
   border-radius: 0.25rem;
   box-shadow: 0 0 10px rgba(49, 49, 49, 0.5);
-  height: auto;
-  width: 100%
 }
 
 .card-img-top:hover {
   box-shadow: 0 0 0.5rem 0.25rem rgba(214, 56, 52, 0.5)
 }
 
-.card-text {
+.card-title {
   font-size: 1rem;
   font-weight: bold;
 }
 
+.card-footer-order {
+  background-color: transparent;
+  border: 0;
+  margin-top: auto;
+}
+
+img.beverages {
+  height: auto;
+  width: 100%;
+}
+
+.beverage-list {
+  margin: 40px 20px;
+}
+
+.drink {
+  padding: 5px 200px 5px 0;
+}
 
 
 /* MENU SUB-NAV */
@@ -336,10 +363,8 @@ label {
 
 
 
-
 /* BUTTONS */
-
-.order-cta-btn, .form-submit-btn {
+.order-now-cta, .form-submit-btn, .order-btn {
   background-color: #D63834;
   border-radius: 5px;
   box-shadow: 3px 3px 5px rgba(49, 49, 49, 0.5);
@@ -347,7 +372,7 @@ label {
   padding: 20px;
 }
 
-a.order-cta-btn {
+a.order-now-cta {
   font-size: 1rem;
   font-weight: bold;
   left: 850px;
@@ -356,7 +381,7 @@ a.order-cta-btn {
   z-index: 1;
 }
 
-a.order-cta-btn:hover {
+a.order-now-cta:hover {
   color: #F7D772;
   text-decoration: none;
 }
@@ -366,9 +391,16 @@ a.order-cta-btn:hover {
   margin-right: 20px;
 }
 
+.order-btn {
+  padding: 5px 0;
+  width: 100%;
+}
+
+.order-btn:hover, 
 .form-submit-btn:hover {
   color: #F7D772;
 }
+
 
 /* ALERTS */
 
@@ -385,5 +417,9 @@ a.order-cta-btn:hover {
 
 .alert {
   margin-bottom: 0;
+}
+
+.btn.focus, .btn:focus {
+  box-shadow: none;
 }
 

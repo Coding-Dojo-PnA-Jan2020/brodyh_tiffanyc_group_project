@@ -2,10 +2,11 @@ from flask import Blueprint, request, render_template, flash, g, session, redire
 from app import db
 from app.mod_menuitems.forms import MenuitemForm
 from app.mod_menuitems.models import Menuitem
+from app.mod_categories.models import Category
 import os
 from werkzeug.utils import secure_filename
 
-mod_menuitems = Blueprint('menuitems', __name__, url_prefix = '/menu')
+mod_menuitems = Blueprint('menuitems', __name__, url_prefix = '/items')
 
 def require_admin():
     if session.get('user_id'):
@@ -55,6 +56,7 @@ def render_menu_drinks():
 @mod_menuitems.route('/new')
 def new():
     require_admin()
+    categories = Category.query.all()
     form = MenuitemForm(request.form)
     return render_template('menuitems/new.html', form = form)
 

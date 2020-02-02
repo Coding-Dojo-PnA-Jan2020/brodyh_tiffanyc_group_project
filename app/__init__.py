@@ -16,6 +16,7 @@ def not_found(error):
     return render_template('404.html'), 404
 
 from app.mod_addresses.controllers import mod_addresses as addresses_module
+from app.mod_categories.controllers import mod_categories as categories_module
 from app.mod_cart.controllers import mod_cart as cart_module
 from app.mod_pages.controllers import mod_pages as pages_module
 from app.mod_menuitems.controllers import mod_menuitems as menuitems_module
@@ -26,6 +27,7 @@ from app.mod_users.controllers import mod_users as users_module
 
 app.register_blueprint(addresses_module)
 app.register_blueprint(cart_module)
+app.register_blueprint(categories_module)
 app.register_blueprint(pages_module)
 app.register_blueprint(menuitems_module)
 app.register_blueprint(orders_module)

@@ -1,14 +1,14 @@
 {% extends 'layout.html' %}
-{% block head_title %}New Menu Item{% endblock %}
+{% block head_title %}New Category{% endblock %}
 
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block content %}
 <div class="page-header">
-  <h2>New Menu Item</h2>
+  <h2>New Category</h2>
 </div>
 
-<form method="post" action="{{ url_for('menuitems.create') }}" accept-charset="utf-8" enctype="multipart/form-data" role="form">
+<form method="post" action="{{ url_for('categories.create') }}" accept-charset="utf-8" enctype="multipart/form-data" role="form">
   {{ form.csrf_token }}
   {% with errors = get_flashed_messages(category_filter = ['form_errors']) %}
     {% if errors %}
@@ -22,10 +22,7 @@
     {% endif %}
   {% endwith %}
   {{ wtf.form_field(form.name, class = 'form-control', placeholder = 'Name', autofocus = '') }}
-  {{ wtf.form_field(form.category_id, class = 'form-control', placeholder = 'Category') }}
   {{ wtf.form_field(form.image, class = 'form-control', placeholder = 'Photo') }}
-  {{ wtf.form_field(form.description, class = 'form-control', placeholder = 'Description') }}
-  {{ wtf.form_field(form.price, class = 'form-control', placeholder = 'Price') }}
   <div class="form-group">
     <input type="submit" value="Save" class="btn btn-primary">
   </div>

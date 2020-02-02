@@ -7,22 +7,17 @@ class Base(db.Model):
     created_at    = db.Column(db.DateTime, default = db.func.current_timestamp())
     updated_at    = db.Column(db.DateTime, default = db.func.current_timestamp(), onupdate = db.func.current_timestamp())
 
-class Menuitem(Base):
-    __tablename__ = 'menuitems'
+class Category(Base):
+    __tablename__ = 'categories'
 
-    category_id     = db.Column(db.Integer, db.ForeignKey('categories.id'), nullable = False)
     name            = db.Column(db.String(128), nullable = False)
-    description     = db.Column(db.String(128), nullable = False)
-    price           = db.Column(db.Float(), nullable = False)
     image_file_path = db.Column(db.String(128), nullable = False)
     image_url_path  = db.Column(db.String(128), nullable = False)
 
-    def __init__(self, name, description, image_file_path, image_url_path, price):
+    def __init__(self, name, image_file_path, image_url_path):
         self.name            = name
-        self.description     = description
         self.image_file_path = image_file_path
         self.image_url_path  = image_url_path
-        self.price           = price
 
     def __repr__(self):
-        return '<Menuitem %r>' % (self.name)
+        return '<Category %r>' % (self.id)

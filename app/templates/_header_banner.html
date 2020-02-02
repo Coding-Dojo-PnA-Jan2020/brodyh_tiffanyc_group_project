@@ -11,7 +11,7 @@
       {% if current_user is not none %}
         <p class="my-account"><a href="/my-account">MY ACCOUNT</a></p>
       {% else %}
-        <p class="sign-in"><a href="/sessions/new">SIGN IN</a></p>
+        <p class="sign-in"><a href="{{ url_for('sessions.new') }}">SIGN IN</a></p>
       {% endif %}
     </div>
   </div>

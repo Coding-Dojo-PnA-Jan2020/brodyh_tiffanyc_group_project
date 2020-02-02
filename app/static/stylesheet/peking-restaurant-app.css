@@ -17,6 +17,7 @@
 }
 
 html {
+  font-size: 16px;
   height: 100%;
 }
 
@@ -24,7 +25,7 @@ body {
   display: flex;
   flex-direction: column;
 	font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.875rem;
+  font-size: 16px;
   height: 100%;
 	line-height: 1.5;
 }
@@ -43,8 +44,8 @@ h2 {
 
 /* Map pin, address and phone icons */
 .fas{
-  margin-left: 12px;
-  margin-right: 12px;
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
 }
 
 .page-header {
@@ -59,13 +60,14 @@ h2 {
 /* HEADER BANNER */
 .header-banner {
   background-color: #313131;
-  border-bottom: 5px solid #8E0404;
+  border-bottom: 0.5rem solid #8E0404;
   color: #fdfdfd;
-  padding: 10px;
+  font-size: 0.875rem;
+  padding: 1rem;
 }
 
 .header-banner p {
-  margin: 0px;
+  margin: 0;
 }
 
 .header-banner a {
@@ -76,51 +78,51 @@ h2 {
   color: #93A603;
 }
 
-.header-contact, 
 .header-account {
-  display: inline-block;
-}
-
-.header-account {
-  width: 100px;
+  width: 13rem;
   float: right;
 }
 
-.my-account,
 .sign-in {
-  margin-left: 20px;
-  margin-right: 20px;
+  width: 6rem;
+  float: right;
 }
+
+.my-account {
+  display: inline-block;
+}
+
 
 
 /* PRIMARY NAV */
 .primary-nav {
   background-color: #fdfdfd;
-  border-bottom: 1px solid #bbbbbb;
+  border-bottom: 0.05rem solid #bbbbbb;
 }
 
 .logo img{
   height: auto;
-  width: 325px;
-  margin-top: 20px;
+  width: 20rem;
+  margin-top: 0.75rem;
+  margin-bottom: 1rem;
 }
 
 .primary-nav li a {
   color: #8E0404;
-  font-size: 18px;
-  font-weight: bold;
-  margin: 15px;
+  font-size: 1.125rem;
+  margin: 0.938rem;
 }
 
 .primary-nav li a:hover {
   color: #313131;
+  text-decoration: underline;
 }
 
 .cart img {
   height: auto;
-  width: 55px;
-  margin-left: 10px;
-  margin-right: 50px;
+  width: 3.438rem;
+  margin-left: 0.625rem;
+  margin-right: 3.125rem;
 }
 
 .cart a{
@@ -144,10 +146,6 @@ h2 {
 
 .main-body p {
   color: #313131;
-}
-
-.page-header h2{
-  text-align: center;
 }
 
 
@@ -187,7 +185,7 @@ h2 {
 
 .card-img-top {
   border-radius: 0.25rem;
-  box-shadow: 0 0 10px rgba(49, 49, 49, 0.5);
+  box-shadow: 0 0 0.25rem rgba(49, 49, 49, 0.5);
 }
 
 .card-img-top:hover {
@@ -211,25 +209,25 @@ img.beverages {
 }
 
 .beverage-list {
-  margin: 40px 20px;
+  margin: 2.5rem 1.25rem;
 }
 
 .drink {
-  padding: 5px 200px 5px 0;
+  padding: 0.313rem 12.5rem 0.313rem 0;
 }
 
 
 /* MENU SUB-NAV */
 .sub-nav {
   background-color: #d63834;
-  margin-bottom: 30px;
+  margin-bottom: 1.875rem;
 }
 
 .sub-nav li{
   display: inline-block;
   font-size: 1rem;
   list-style: none;
-  padding: 0 54px;
+  padding: 0 3.375rem;
 }
 
 .sub-nav a{
@@ -258,7 +256,7 @@ img.beverages {
 }
 
 #map {
-  height: 400px;
+  height: 25rem;
   width: 100%; 
 }
 
@@ -272,8 +270,9 @@ img.beverages {
 .main-contact {
   background-color: rgb(253, 253, 253, 0.75);
   border-radius:5px;
-  margin: 10px;
-  padding: 20px;
+  font-size: 0.875rem;
+  margin: 0.625rem;
+  padding: 1.25rem;
 }
 
 .highlight-day {
@@ -299,7 +298,8 @@ ul.day-of-week-hours {
 /* FOOTER */
 .footer {
   background-color:#313131;
-  border-top: 25px solid #8E0404;
+  border-top: 1.563rem solid #8E0404;
+  font-size: 0.875rem;
   color: #fdfdfd;
 }
 
@@ -322,7 +322,7 @@ ul.day-of-week-hours {
   display: inline-block;
   vertical-align: top;
   width: 32%;
-  margin: 30px 5px;
+  margin: 1.875rem 0.313rem;
 }
 
 .social {
@@ -331,7 +331,7 @@ ul.day-of-week-hours {
 
 /* Social media icons */
 .fab{
-  margin: 5px;
+  margin: 0.313rem;
 }
 
 .footer-company-details {
@@ -341,8 +341,8 @@ ul.day-of-week-hours {
 .attribution {
   background-color: #0D0D0D;
   color: #bbbbbb;
-  font-size: 11px;
-  padding-top: 3px;
+  font-size: 0.688rem;
+  padding-top: 0.188rem;
   text-align: center;
 }
 
@@ -364,42 +364,45 @@ label {
 
 
 /* BUTTONS */
-.order-now-cta, .form-submit-btn, .order-btn {
+.peking-button {
   background-color: #D63834;
-  border-radius: 5px;
-  box-shadow: 3px 3px 5px rgba(49, 49, 49, 0.5);
+  border-radius: 0.313rem;
+  box-shadow: 0.188rem 0.188rem .313rem rgba(49, 49, 49, 0.5);
   color: #fdfdfd;
-  padding: 20px;
 }
 
-a.order-now-cta {
+a.peking-button--cta {
   font-size: 1rem;
   font-weight: bold;
-  left: 850px;
-  top: -100px;
+  left: 53.125rem;
+  top: -6.25rem;
   position: relative;
   z-index: 1;
 }
 
-a.order-now-cta:hover {
-  color: #F7D772;
-  text-decoration: none;
+.peking-button--cta {
+  padding: 1.25rem;
 }
 
-.form-submit-btn {
+.peking-button--contact, 
+.peking-button--add-category, 
+.peking-button--add-menu, 
+.peking-button--sign-in,
+.peking-button--sign-up {
   padding: 10px 20px;
   margin-right: 20px;
 }
 
-.order-btn {
-  padding: 5px 0;
+.peking-button--order {
+  padding: 0.313rem 0;
   width: 100%;
 }
 
-.order-btn:hover, 
-.form-submit-btn:hover {
+.peking-button:hover {
   color: #F7D772;
+  text-decoration: none;
 }
+
 
 
 /* ALERTS */
@@ -407,7 +410,7 @@ a.order-now-cta:hover {
 
 /* OVERRIDE */
 .form-control {
-  width: 400px
+  width: 24rem;
 }
 
 .form-control:focus {

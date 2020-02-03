@@ -5,7 +5,7 @@
 
 {% block content %}
   <div class="page-header">
-    <h1>Checkout</h1>
+    <h2>Checkout</h2>
   </div>
 
   {% if menuitems|length > 0 %}
@@ -29,11 +29,11 @@
       {% endif %}
     {% endwith %}
 
-    <h2>Options</h2>
+    <h3>Options</h3>
     {{ wtf.form_field(form.is_delivery, class = 'form-control', placeholder = 'Delivery?', autofocus = '') }}
     {{ wtf.form_field(form.ready_by, class = 'form-control flatpickr', placeholder = 'Deliver/pickup by') }}
 
-    <h2>Payment</h2>
+    <h3>Payment</h3>
     {{ wtf.form_field(form.card_number, class = 'form-control', placeholder = 'Card number') }}
 
     <div class="form-group">

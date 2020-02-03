@@ -5,9 +5,9 @@
         <img class="card-img-top" src="{{ url_for('static', filename = menuitem.image_url_path) }}" alt="{{ menuitem.name }}" class="img img-responsive rounded w-100">
         <div class="card-body">
           <h4 class="card-title">{{ menuitem.name }}</h4>
-          <p class="card-text"><b><span class="currency-usd">{{ menuitem.price }}</span></b></p>
-          <p class="card-text">{{ menuitem.description }}</p>
+          <!-- <p class="card-text"><b><span class="currency-usd">{{ menuitem.price }}</span></b></p> -->
           <p class="card-text"><b>{{ menuitem.price|pretty_price }}</b></p>
+          <p class="card-text">{{ menuitem.description }}</p>
           <div class="card-footer-order">
             <form action="{{ url_for('cart.add', id = menuitem.id) }}" method="post">
               <input type="submit" value="Order" class="btn peking-button peking-button--order">

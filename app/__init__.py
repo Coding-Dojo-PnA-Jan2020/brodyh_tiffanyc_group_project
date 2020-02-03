@@ -51,3 +51,9 @@ def cart_menuitem_ids():
     if 'cart_menuitem_ids' not in session:
         session['cart_menuitem_ids'] = []
     return dict(cart_menuitem_ids = session['cart_menuitem_ids'])
+
+@app.template_filter()
+def pretty_price(price):
+    import locale
+    locale.setlocale(locale.LC_ALL, 'en_US')
+    return locale.currency(price, symbol = True, grouping = True)

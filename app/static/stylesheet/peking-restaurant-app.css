@@ -295,6 +295,12 @@ ul.day-of-week-hours {
 
 
 
+/* CART */
+.cart-description {
+  font-size: 0.875rem;
+}
+
+
 /* FOOTER */
 .footer {
   background-color:#313131;
@@ -388,7 +394,8 @@ a.peking-button--cta {
 .peking-button--add-category, 
 .peking-button--add-menu, 
 .peking-button--sign-in,
-.peking-button--sign-up {
+.peking-button--sign-up, 
+.peking-button--remove {
   padding: 10px 20px;
   margin-right: 20px;
 }

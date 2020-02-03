@@ -57,6 +57,16 @@
         $('.day-of-week-hours li:nth-child('+(((new Date().getDay()+6)%7)+1)+')').addClass('highlight-day')
       });
     </script>
+    <script type="text/javascript"> 
+      $('.currency-usd').each(function() { 
+          var monetary_value = $(this).text(); 
+          var i = new Intl.NumberFormat('en-US', { 
+              style: 'currency', 
+              currency: 'USD' 
+          }).format(monetary_value); 
+          $(this).text(i); 
+      }); 
+  </script>
   </body>
 
 </html>

@@ -26,6 +26,7 @@ def index():
 @mod_menuitems.route('/new')
 def new():
     require_admin()
+
     form = MenuitemForm(request.form)
     form.category.choices = [ (category.id, category.name) for category in Category.query.all() ]
     return render_template('menuitems/new.html', form = form)
@@ -33,17 +34,22 @@ def new():
 @mod_menuitems.route('/create', methods = ['POST'])
 def create():
     require_admin()
+
     form = MenuitemForm()
     form.category.choices = [ (category.id, category.name) for category in Category.query.all() ]
+
     if form.validate():
         category = Category.query.filter_by(id = int(form.category.data)).first()
+
         image = form.image.data
         image_file_path = os.path.join(current_app.config['UPLOADED_IMAGES_DEST'], secure_filename(image.filename))
         image_url_path = f"uploads/{secure_filename(image.filename)}"
         image.save(image_file_path)
+
         menuitem = Menuitem(category, form.name.data, form.description.data, image_file_path, image_url_path, form.price.data)
         db.session.add(menuitem)
         db.session.commit()
+
         if menuitem:
             flash(f"Saved {menuitem.name}", 'main')
             return redirect(url_for('categories.show', name = category.name))

@@ -8,12 +8,12 @@ mod_users = Blueprint('users', __name__, url_prefix = '/users')
 
 @mod_users.route('/new')
 def new():
-    form = RegistrationForm(request.form)
+    form = RegistrationForm()
     return render_template('users/new.html', form = form)
 
 @mod_users.route('/create', methods = ['POST'])
 def create():
-    form = RegistrationForm(request.form)
+    form = RegistrationForm()
     if form.validate():
         if form.password.data == form.password_confirmation.data:
             user = User(form.first_name.data, form.last_name.data, form.email.data, form.phone.data, generate_password_hash(form.password.data))
@@ -29,6 +29,7 @@ def create():
             flash('Password and password confirmation do not match', 'form_errors')
     else:
         flash(form.errors, 'form_errors')
+
     return render_template('users/new.html', form = form)
 
 @mod_users.route('/me')

@@ -1,7 +1,8 @@
 from flask import Blueprint, request, render_template, flash, g, session, redirect, url_for
 from app import db
-from app.mod_menuitems.models import Menuitem
 from app.mod_orders.forms import CartToOrderForm
+from app.mod_categories.models import Category
+from app.mod_menuitems.models import Menuitem
 from app.mod_orders.models import Order, OrderMenuitem
 
 mod_cart = Blueprint('cart', __name__, url_prefix = '/cart')
@@ -29,17 +30,17 @@ def checkout():
 
 @mod_cart.route('/add/?menuitem=<id>', methods = ['POST'])
 def add(id):
+    menuitem = Menuitem.query.filter_by(id = id).first()
+    category = Category.query.filter_by(id = menuitem.category_id).first()
+
     if 'cart_menuitem_ids' not in session:
         session['cart_menuitem_ids'] = []
-
     cart_menuitem_ids = session['cart_menuitem_ids']
     cart_menuitem_ids.append(id)
     session['cart_menuitem_ids'] = cart_menuitem_ids
-    print(session['cart_menuitem_ids'])
 
     flash('Added to cart', 'main')
-    # Todo: Redirect to category
-    return redirect(url_for('menuitems.index'))
+    return redirect(url_for('categories.show', name = category.name))
 
 @mod_cart.route('/remove/?menuitem=<id>', methods = ['POST', 'DELETE'])
 def remove(id):
@@ -49,5 +50,6 @@ def remove(id):
     else:
         cart_menuitem_ids = session['cart_menuitem_ids']
         cart_menuitem_ids.remove(id)
+
     flash('Removed from cart', 'main')
     return redirect(url_for('cart.index'))

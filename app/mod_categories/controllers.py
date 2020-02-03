@@ -26,21 +26,25 @@ def index():
 @mod_categories.route('/new')
 def new():
     require_admin()
+
     form = CategoryForm(request.form)
     return render_template('categories/new.html', form = form)
 
 @mod_categories.route('/create', methods = ['POST'])
 def create():
     require_admin()
+
     form = CategoryForm()
     if form.validate():
         image = form.image.data
         image_file_path = os.path.join(current_app.config['UPLOADED_IMAGES_DEST'], secure_filename(image.filename))
         image_url_path = f"uploads/{secure_filename(image.filename)}"
         image.save(image_file_path)
+
         category = Category(form.name.data, image_file_path, image_url_path)
         db.session.add(category)
         db.session.commit()
+
         if category:
             flash(f"Saved {category.name}", 'main')
             return redirect(url_for('categories.index'))

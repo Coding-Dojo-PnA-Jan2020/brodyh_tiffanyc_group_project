@@ -14,6 +14,7 @@ def new():
 @mod_sessions.route('/create', methods = ['POST'])
 def create():
     form = LoginForm(request.form)
+
     user = User.query.filter_by(email = form.email.data).first()
     if user and check_password_hash(user.password, form.password.data):
         session['user_id'] = user.id
@@ -23,6 +24,7 @@ def create():
             return redirect(url_for('cart.checkout'))
         else:
             return redirect(url_for('menuitems.index'))
+
     flash('Incorrect email or password', 'form_errors')
     return render_template('sessions/new.html', form = form)
 

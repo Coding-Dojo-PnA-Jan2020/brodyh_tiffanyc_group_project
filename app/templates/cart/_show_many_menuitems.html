@@ -2,7 +2,7 @@
   <tbody>
     {% for menuitem in menuitems %}
       <tr>
-        <td><b><span class="currency-usd">{{ menuitem.price }}</span></b></td>
+        <!-- <td><b><span class="currency-usd">{{ menuitem.price }}</span></b></td> -->
         <td>
           <div class="row">
             <div class="col-sm-6 col-md-4">
@@ -10,11 +10,8 @@
             </div>
             <div class="col-sm-6 col-md-6">
               <h3>{{ menuitem.name }}</h3>
-              <p class="cart-description">{{ menuitem.description }}</p>
-            <div class="col-sm-6 col-md-8">
-              <h2 class="h5 w-100">{{ menuitem.name }}</h2>
               <p>{{ menuitem.description }}</p>
-              <p>{{ menuitem.price|pretty_price }}</p>
+              <p><b>{{ menuitem.price|pretty_price }}</b></p>
             </div>
           </div>
         </td>

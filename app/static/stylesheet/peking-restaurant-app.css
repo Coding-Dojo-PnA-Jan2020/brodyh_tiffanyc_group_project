@@ -27,7 +27,7 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   height: 100%;
-	line-height: 1.5;
+  line-height: 1.5;
 }
 
 h1, h2, h3 {
@@ -63,7 +63,12 @@ h2 {
   border-bottom: 0.5rem solid #8E0404;
   color: #fdfdfd;
   font-size: 0.875rem;
+  overflow: hidden;
   padding: 1rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
 }
 
 .header-banner p {
@@ -98,6 +103,12 @@ h2 {
 .primary-nav {
   background-color: #fdfdfd;
   border-bottom: 0.05rem solid #bbbbbb;
+  margin-top: 3.813rem;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
 }
 
 .logo img{
@@ -141,6 +152,7 @@ h2 {
   background-image: url("../assets/img/ricepaper2.png");
   background-repeat: repeat;
   flex-grow: 1;
+  margin-top: 15.188rem;
   padding: 1rem;
 }
 

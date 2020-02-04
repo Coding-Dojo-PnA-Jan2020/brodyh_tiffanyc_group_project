@@ -3,7 +3,7 @@
     {% for category in categories %}
       <div class="card">
         <a href="{{ url_for('categories.show', name = category.name.lower()) }}">
-        <img class="card-img-top" src="{{ url_for('static', filename = category.image_url_path) }}" alt="{{ category.name }}"></a>
+        <img class="card-img-top menu-categories-img" src="{{ url_for('static', filename = category.image_url_path) }}" alt="{{ category.name }}"></a>
         <div class="card-body">
           <h4 class="card-title">{{ category.name }}</h4>
         </div>

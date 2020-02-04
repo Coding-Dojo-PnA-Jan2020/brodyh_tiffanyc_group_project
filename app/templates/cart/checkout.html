@@ -6,38 +6,45 @@
 {% block content %}
   <div class="page-header">
     <h2>Checkout</h2>
-  </div>
 
-  {% if menuitems|length > 0 %}
-    {% include 'cart/_show_many_menuitems.html' %}
-  {% else %}
-    {% include 'cart/_empty_cart.html' %}
-  {% endif %}
+    {# Checkout Form #}
+    <form method="post" action="{{ url_for('orders.create') }}" accept-charset="utf-8" role="form">
+      {{ form.csrf_token }}
+      <input type="hidden" name="menuitem_ids" value="{{ menuitem_ids }}">
+      {% with errors = get_flashed_messages(category_filter = ['form_errors']) %}
+        {% if errors %}
+          <div class="alert alert-warning">
+            <ul class="list-unstyled">
+              {% for error in errors %}
+                <li>{{ error }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+      {% endwith %}
+  
+      <div class="options">
+        <h4>Options</h4>
+        {{ wtf.form_field(form.ready_by, class = 'form-control flatpickr', placeholder = 'Deliver/pickup by') }}
+        {{ wtf.form_field(form.is_delivery, class = 'form-control', placeholder = 'Delivery?', autofocus = '') }}
+      </div>
+  
+      <div class="payment">
+      <h4>Payment</h4>
+      {{ wtf.form_field(form.card_number, class = 'form-control', placeholder = 'Card number') }}
+      </div>
+  
+      <div class="form-group submit-order">
+        <input type="submit" value="Submit Order" class="btn peking-button peking-button--submit-order">
+      </div>
+    </form>
 
-  <form method="post" action="{{ url_for('orders.create') }}" accept-charset="utf-8" role="form">
-    {{ form.csrf_token }}
-    <input type="hidden" name="menuitem_ids" value="{{ menuitem_ids }}">
-    {% with errors = get_flashed_messages(category_filter = ['form_errors']) %}
-      {% if errors %}
-        <div class="alert alert-warning">
-          <ul class="list-unstyled">
-            {% for error in errors %}
-              <li>{{ error }}</li>
-            {% endfor %}
-          </ul>
-        </div>
-      {% endif %}
-    {% endwith %}
+    {# Cart #}
+    {% if menuitems|length > 0 %}
+      {% include 'cart/_show_many_menuitems.html' %}
+    {% else %}
+      {% include 'cart/_empty_cart.html' %}
+    {% endif %}
 
-    <h3>Options</h3>
-    {{ wtf.form_field(form.is_delivery, class = 'form-control', placeholder = 'Delivery?', autofocus = '') }}
-    {{ wtf.form_field(form.ready_by, class = 'form-control flatpickr', placeholder = 'Deliver/pickup by') }}
-
-    <h3>Payment</h3>
-    {{ wtf.form_field(form.card_number, class = 'form-control', placeholder = 'Card number') }}
-
-    <div class="form-group">
-      <input type="submit" value="Submit Order" class="btn peking-button peking-button--checkout">
-    </div>
-  </form>
+</div>
 {% endblock %}

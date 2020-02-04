@@ -1,26 +1,28 @@
-<table class="table table-borderless table-condensed table-striped">
-  <tbody>
-    {% for menuitem in menuitems %}
-      <tr>
-        <!-- <td><b><span class="currency-usd">{{ menuitem.price }}</span></b></td> -->
-        <td>
-          <div class="row">
-            <div class="col-sm-6 col-md-4">
-              <img src="{{ url_for('static', filename = menuitem.image_url_path) }}" alt="{{ menuitem.name }}" class="img img-responsive rounded w-100">
+<div class="cart">
+  <table class="table table-condensed table-hover">
+    <tbody>
+      {% for menuitem in menuitems %}
+        <tr>
+          <!-- <td><b><span class="currency-usd">{{ menuitem.price }}</span></b></td> -->
+          <td>
+            <div class="row">
+              <div class="col-sm-3 col-md-3">
+                <img src="{{ url_for('static', filename = menuitem.image_url_path) }}" alt="{{ menuitem.name }}" class="cart-menu-img">
+              </div>
+              <div class="col-sm-6 col-md-8">
+                <h4>{{ menuitem.name }}</h4>
+                <p>{{ menuitem.description }}</p>
+                <p><b>{{ menuitem.price|pretty_price }}</b></p>
+              </div>
             </div>
-            <div class="col-sm-6 col-md-6">
-              <h3>{{ menuitem.name }}</h3>
-              <p>{{ menuitem.description }}</p>
-              <p><b>{{ menuitem.price|pretty_price }}</b></p>
-            </div>
-          </div>
-        </td>
-        <td>
-          <form action="{{ url_for('cart.remove', id = menuitem.id) }}" method="post">
-            <input type="submit" value="Remove" class="btn peking-button peking-button--remove">
-          </form>
-        </td>
-      </tr>
-    {% endfor %}
-  </tbody>
-</table>
+          </td>
+          <td>
+            <form action="{{ url_for('cart.remove', id = menuitem.id) }}" method="post">
+              <input type="submit" value="[x] Remove" class="link-btn remove-from-cart">
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>

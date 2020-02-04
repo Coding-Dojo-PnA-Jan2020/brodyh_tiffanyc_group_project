@@ -3,12 +3,11 @@
 
 {% block content %}
 <div class="page-header">
-
+  <h2>Contact Us</h2>
   {# Left - Contact Form and Map #}
   <div class="contact-form-map">
 
     {# Contact Form #}
-    <h2>Contact Us</h2>
     <div class="contact-us-form">
       <form class="form-container" action="#">
         <div class="form-group">
@@ -66,6 +65,15 @@
         <li class="day">Sunday: 11:00am-8:00pm</li>
       </ul>
     </div>
+
+    {# Payment Methods #}
+    <div class="payment-methods">
+      <p><b>We gladly accept:</b></p>
+      <img src="{{ url_for('static', filename='assets/img/visa.svg') }}" alt="Visa payment">
+      <img src="{{ url_for('static', filename='assets/img/mastercard.svg') }}" alt="Mastercard payment">
+      <img src="{{ url_for('static', filename='assets/img/american-express.svg') }}" alt="American Express payment">
+    </div>
+
     {# Contact Information #}
     <div class="main-contact">
       <h3>CONTACT US</h3>
@@ -74,6 +82,8 @@
       <p><a href="tel:555-867-5309"><i class="fas fa-phone"></i>555&#8209;867&#8209;5309</a></p>
       <p><a href="mailto:support@peking-restaurant.com"><i class="fas fa-envelope"></i>support@peking-restaurant.com</a></p>
     </div>
+
   </div>
+
 </div>
 {% endblock %}

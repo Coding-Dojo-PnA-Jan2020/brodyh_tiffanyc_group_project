@@ -29,7 +29,7 @@
   {{ wtf.form_field(form.password_confirmation, class = 'form-control', placeholder = 'Password confirmation') }}
   <div class="form-group">
     <input type="submit" value="Sign up" class="btn peking-button peking-button--sign-up">
-    <a href="{{ url_for('sessions.new') }}">Have an account?</a>
+    <a href="{{ url_for('sessions.new') }}" class="account">Have an account?</a>
   </div>
 </form>
 {% endblock %}

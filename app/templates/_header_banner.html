@@ -9,8 +9,8 @@
     {# Right - Account/Sign In #}
     <div class="header-account">
       {% if current_user is not none %}
-        <p class="my-account"><a href="/my-account">MY ACCOUNT</a> | </p>
-        <p class="my-account"><a href="/sessions/destroy">SIGN OUT</a></p>
+        <p class="my-account"><a href="/my-account">MY ACCOUNT</a>&nbsp;|&nbsp;</p>
+        <p class="my-account"><a href="/sessions/destroy"> SIGN OUT</a></p>
       {% else %}
         <p class="sign-in"><a href="{{ url_for('sessions.new') }}">SIGN IN</a></p>
       {% endif %}

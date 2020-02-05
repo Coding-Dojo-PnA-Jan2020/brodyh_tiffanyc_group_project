@@ -91,18 +91,18 @@ p {
   color: #93A603;
 }
 
+.header-contact {
+  display: none;
+}
+
 .header-account {
-  width: 13rem;
-  float: right;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
-.sign-in {
-  width: 6rem;
-  float: right;
-}
-
-.my-account {
-  display: inline-block;
+.header-account p{
+  display: inline;
 }
 
 
@@ -112,7 +112,6 @@ p {
   background-color: #fdfdfd;
   border-bottom: 0.05rem solid #bbbbbb;
   margin-top: 3.813rem;
-  overflow: hidden;
   position: fixed;
   top: 0;
   width: 100%;
@@ -121,7 +120,11 @@ p {
 
 .logo img{
   height: auto;
-  width: 20rem;
+  width: 200px;
+}
+
+.navbar-expand .navbar-nav {
+  flex-direction: column;
 }
 
 .primary-nav li a {
@@ -135,6 +138,16 @@ p {
   text-decoration: underline;
 }
 
+.navigation {
+  background-color: #fdfdfd;
+  flex-direction: column;
+  left: 0;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  align-items: flex-start;
+}
+
 .cart-icon {
   height: auto;
   width: 3.438rem;
@@ -142,9 +155,17 @@ p {
   margin-right: 3.125rem;
 }
 
-.nav-cart a{
+.nav-cart {
+  margin-bottom: 2rem;
+  padding-right: .5rem;
+  padding-left: .5rem;
+}
+
+.nav-cart a {
   color: #93A603;
   font-weight: bold;
+  padding-right: .5rem;
+  padding-left: .5rem;
 }
 
 .nav-cart a:hover{
@@ -402,10 +423,13 @@ margin-bottom: 4.688rem;
 .middle-ground, 
 .reviews, 
 .footer-contact {
-  display: inline-block;
   margin: 1.875rem 0.688rem;
   vertical-align: top;
-  width: 31%;
+  width: 100%;
+}
+
+.reviews, .footer-contact {
+  display: none;
 }
 
 .middle-ground {
@@ -418,7 +442,7 @@ margin-bottom: 4.688rem;
 }
 
 .get-app {
-  margin-top: 3.125rem;
+  margin-top: 1rem;
 }
 
 .apple-store {
@@ -433,10 +457,16 @@ margin-bottom: 4.688rem;
   width:auto;
 }
 
+.sub-footer {
+margin-bottom: 73px;
+}
+
 .footer-company-details {
   margin: 0.625rem 0;
   text-align: center;
   }
+
+
 
 .attribution {
   background-color: #0D0D0D;
@@ -454,6 +484,26 @@ margin-bottom: 4.688rem;
   color: #bbbbbb;
 }
 
+.mobile-order-contact {
+  background-color: #313131;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  padding: 0.75rem;
+  z-index: 2;
+  width: 100%;
+}
+
+.peking-button--mobile {
+  padding: 0.75rem;
+  text-align: center;
+  width: 50%;
+}
+
+.mobile-order-contact p, 
+.mobile-order-contact a {
+  display:inline-block;
+}
 
 
 /* FORMS */
@@ -465,23 +515,20 @@ label {
 
 /* BUTTONS */
 .peking-button {
-  background-color: #D63834;
+  background-image: linear-gradient(#d63834, #d63834, #8E0404);
   border-radius: 0.313rem;
   box-shadow: 0.188rem 0.188rem .313rem rgba(49, 49, 49, 0.5);
   color: #fdfdfd;
 }
 
-a.peking-button--cta {
-  font-size: 1rem;
-  font-weight: bold;
-  left: 53.125rem;
-  position: relative;
-  top: -6.25rem;
-  z-index: 1;
-}
 
 .peking-button--cta {
-  padding: 1.25rem;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  width: 100%;
+  display: block;
+  text-align: center;
+  padding: 0.75rem;
 }
 
 .peking-button--contact, 
@@ -521,6 +568,7 @@ a.peking-button--cta {
 /* ALERTS */
 
 
+
 /* OVERRIDE */
 .form-control {
   width: 24rem;
@@ -539,3 +587,120 @@ a.peking-button--cta {
   box-shadow: none;
 }
 
+
+
+/* DESKTOP */
+@media only screen and (min-width: 960px) {
+
+  /* HEADER/BANNER */
+  .header-contact {
+    display: unset;
+  }
+
+  .header-account {
+    width: 13rem;
+    float: right;
+  }
+  
+  .sign-in {
+    width: 6rem;
+    float: right;
+  }
+  
+  .my-account {
+    display: inline-block;
+  }
+
+
+
+  /* NAVIGATION */
+  .hamburgler {
+    display: none;
+  }
+
+  .navigation.collapse {
+    display: flex;
+  }
+
+  .navigation {
+    background-color: #fdfdfd;
+    flex-direction: row;
+    left: unset;
+    position: unset;
+    top: unset;
+    width: 100%;
+    align-items: baseline;
+  }
+
+  .navbar-expand .navbar-nav {
+    flex-direction: row;
+    margin-left: auto;
+  }
+
+  .nav-cart {
+    margin-bottom: 2rem;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+  
+  .nav-cart a {
+    color: #93A603;
+    font-weight: bold;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+
+  .primary-nav {
+    overflow: hidden;
+  }
+
+  .logo img{
+    height: auto;
+    width: 20rem;
+  }
+
+
+
+  /* ABOUT US */
+  .hero {
+    margin-bottom: 3rem;
+    position: relative;
+  }
+
+
+
+  /* FOOTER */
+  .middle-ground, 
+  .reviews, 
+  .footer-contact {
+    display: inline-block;
+    margin: 1.875rem 0.688rem;
+    vertical-align: top;
+    width: 31%;
+  }
+
+  .get-app {
+    margin-top: 3.125rem;
+  }
+
+  .sub-footer {
+    margin-bottom: 0;
+    }
+
+  .mobile-order-contact {
+    display: none;
+  }
+
+
+  /* BUTTONS */
+  a.peking-button--cta {
+    bottom: 0;
+    font-size: 1rem;
+    font-weight: bold;
+    left: 75%;
+    position: absolute;
+    z-index: 1;
+    width: auto;
+  }
+
+}

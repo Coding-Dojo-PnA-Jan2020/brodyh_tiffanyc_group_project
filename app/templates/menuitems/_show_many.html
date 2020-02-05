@@ -2,7 +2,7 @@
   <div class="menu-overview">
     {% for menuitem in menuitems %}
       <div class="card">
-        <img class="card-img-top menu-items-img" src="{{ url_for('static', filename = menuitem.image_url_path) }}" alt="{{ menuitem.name }}" class="img img-responsive rounded w-100">
+        <img class="card-img-top menu-items-img" src="{{ url_for('static', filename = menuitem.image_url_path) }}" alt="{{ menuitem.name }}">
         <div class="card-body">
           <h4 class="card-title">{{ menuitem.name }}</h4>
           <!-- <p class="card-text"><b><span class="currency-usd">{{ menuitem.price }}</span></b></p> -->

@@ -232,8 +232,9 @@ img.beverages {
 
 /* MENU SUB-NAV */
 .sub-nav {
-  background-color: #d63834;
-  margin-bottom: 1.875rem;
+  background-image: linear-gradient(#d63834, #d63834, #8E0404);
+  margin-bottom: 3.875rem;
+  border-radius: 5px;
 }
 
 .sub-nav li{
@@ -255,7 +256,6 @@ img.beverages {
   color: #F7D772;
   text-decoration: underline;
 }
-
 
 
 /* CONTACT US*/

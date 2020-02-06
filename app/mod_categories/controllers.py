@@ -56,6 +56,7 @@ def create():
 
 @mod_categories.route('/<name>')
 def show(name):
+    categories = Category.query.order_by(Category.name).all()
     category = Category.query.filter(Category.name.ilike(name)).first()
     menuitems = Menuitem.query.filter_by(category_id = category.id).all()
-    return render_template('categories/show.html', category = category, menuitems = menuitems)
+    return render_template('categories/show.html', categories = categories, category = category, menuitems = menuitems)

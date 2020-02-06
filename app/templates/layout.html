@@ -31,18 +31,16 @@
 
   <body>
 
-
     {# Header Banner #}
     {% include '_header_banner.html' %}
 
     {# Nav #}
     {% include '_nav.html' %}
 
-    {# Flash Messages #}
-    {% include '_flash_messages.html' %}
-
     {# Main Content #}
     <main class="main-body">
+        {# Flash Messages #}
+        {% include '_flash_messages.html' %}
       <div class="container pt-4">
         {% block content %}{% endblock %}
       </div>
@@ -60,6 +58,14 @@
     <script>
       $(document).ready(function(){
         $('.day-of-week-hours li:nth-child('+(((new Date().getDay()+6)%7)+1)+')').addClass('highlight-day')
+      });
+    </script>
+    <script> 
+      $("document").ready(function(){
+        setTimeout(function(){
+            $("div.flash-alert").remove();
+        }, 3000 ); // 3 secs
+    
       });
     </script>
     <script type="text/javascript"> 

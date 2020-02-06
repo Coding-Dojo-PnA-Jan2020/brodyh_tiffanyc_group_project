@@ -157,15 +157,15 @@ p {
 
 .nav-cart {
   margin-bottom: 2rem;
-  padding-right: .5rem;
-  padding-left: .5rem;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
 }
 
 .nav-cart a {
   color: #93A603;
   font-weight: bold;
-  padding-right: .5rem;
-  padding-left: .5rem;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
 }
 
 .nav-cart a:hover{
@@ -179,7 +179,7 @@ p {
   background-image: url("../assets/img/ricepaper2.png");
   background-repeat: repeat;
   flex-grow: 1;
-  margin-top: 12.863rem;
+  margin-top: 10.05rem;
   padding: 1rem;
 }
 
@@ -208,7 +208,7 @@ p {
   background-color: transparent;
   border: none;
   margin: 15px 12px;
-  width: 31%;
+  width: 100%;
   vertical-align: top;
 }
 
@@ -235,6 +235,10 @@ p {
   background-color: transparent;
   border: 0;
   margin-top: auto;
+}
+
+.menu-item-description {
+  display: none;
 }
 
 img.beverages {
@@ -285,24 +289,16 @@ img.beverages {
   margin-bottom: 1.25rem;
 }
 
-.contact-form-map {
-  display: inline-block;
-  width: 67%;
-}
 
 #map {
-  height: 25rem;
-  width: 85%; 
+  height: 20rem;
 }
 
-.hours-contact {
-  vertical-align: top;
-  display: inline-block;
-  width: 32%;
+.main-contact {
+  display: none;
 }
 
 .open-hours,
-.main-contact, 
 .payment-methods {
   background-color: rgb(253, 253, 253, 0.75);
   border-radius:5px;
@@ -388,16 +384,6 @@ margin-bottom: 4.688rem;
 
 
 
-/* 404 */
-.four-zero-four a{
-  color: #8E0404;
-}
-
-.four-zero-four a:hover{
-  color: #93A603;
-}
-
-
 
 /* FOOTER */
 .footer {
@@ -466,8 +452,6 @@ margin-bottom: 73px;
   text-align: center;
   }
 
-
-
 .attribution {
   background-color: #0D0D0D;
   color: #bbbbbb;
@@ -494,15 +478,16 @@ margin-bottom: 73px;
   width: 100%;
 }
 
-.peking-button--mobile {
+a.peking-button--mobile {
   padding: 0.75rem;
   text-align: center;
   width: 50%;
+  text-decoration: none;
 }
 
 .mobile-order-contact p, 
 .mobile-order-contact a {
-  display:inline-block;
+  display: inline-block;
 }
 
 
@@ -514,23 +499,21 @@ label {
 
 
 /* BUTTONS */
-.peking-button {
+.peking-button,
+.peking-button:active,
+.btn:not(:disabled):not(.disabled).active,
+.btn:not(:disabled):not(.disabled):active {
   background-image: linear-gradient(#d63834, #d63834, #8E0404);
   border-radius: 0.313rem;
   box-shadow: 0.188rem 0.188rem .313rem rgba(49, 49, 49, 0.5);
   color: #fdfdfd;
 }
 
-
 .peking-button--cta {
-  margin-top: 24px;
-  margin-bottom: 24px;
-  width: 100%;
-  display: block;
-  text-align: center;
-  padding: 0.75rem;
+  display: none;
 }
 
+.peking-button--cta,
 .peking-button--contact, 
 .peking-button--add-category, 
 .peking-button--add-menu, 
@@ -544,10 +527,6 @@ label {
   margin-right: 1.25rem;
 }
 
-.peking-button--checkout,
-.peking-button--submit-order {
-  float: right;
-}
 
 .peking-button--checkout {
   margin-top: 1.25rem;
@@ -563,16 +542,38 @@ label {
   text-decoration: none;
 }
 
+.menu-link{
+  color: #8E0404;
+  font-weight: bold;
+}
+
+.menu-link:hover{
+  color: #93A603;
+}
+
 
 
 /* ALERTS */
+.flash-alert {
+  border-radius: 5px;
+  line-height: 0.75rem;
+  padding-top: 18px;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  z-index: 3;
+}
+
+.alert-warning {
+  background-color: #F7D772;
+}
+.empty-cart {
+  padding-bottom: 3rem;
+}
 
 
 
 /* OVERRIDE */
-.form-control {
-  width: 24rem;
-}
 
 .form-control:focus {
   border-color: #D63834;
@@ -589,7 +590,58 @@ label {
 
 
 
-/* DESKTOP */
+/* TABLET */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+  /* MENU */
+  .card {
+    width: 46%;
+  }
+
+  .menu-item-description {
+    display: unset;
+  }
+
+
+
+  /* CART */
+  .peking-button--checkout {
+  float: right;
+}
+
+
+
+  /* CONTACT US */
+  .contact-form-map {
+    display: inline-block;
+    width: 60%;
+  }
+
+
+  #map {
+    height: 20rem;
+    width: 95%; 
+  }
+  
+  .hours-contact {
+    vertical-align: top;
+    display: inline-block;
+    width: 38%;
+  }
+
+  .main-contact {
+    background-color: rgb(253, 253, 253, 0.75);
+    border-radius: 5px;
+    display: block;
+    font-size: 0.875rem;
+    margin: 0.625rem;
+    padding: 1.25rem;
+  }
+
+}
+
+
+
+  /* DESKTOP */
 @media only screen and (min-width: 960px) {
 
   /* HEADER/BANNER */
@@ -661,11 +713,63 @@ label {
 
 
 
-  /* ABOUT US */
+  /* MAIN CONTENT */
+  .main-body {
+    margin-top: 12.863rem;
+  }
+
   .hero {
     margin-bottom: 3rem;
     position: relative;
   }
+
+
+
+  /* MENU */
+  .card {
+    width: 31%;
+  }
+
+  .menu-item-description {
+    display: unset;
+  }
+
+
+
+  /* CART */
+  .peking-button--checkout,
+  .peking-button--submit-order {
+    float: right;
+  }
+
+
+
+  /* CONTACT */
+  .contact-form-map {
+    display: inline-block;
+    width: 67%;
+  }
+  
+  #map {
+    height: 25rem;
+    width: 85%; 
+  }
+  
+  .hours-contact {
+    vertical-align: top;
+    display: inline-block;
+    width: 32%;
+  }
+
+  .main-contact {
+    background-color: rgb(253, 253, 253, 0.75);
+    border-radius: 5px;
+    display: block;
+    font-size: 0.875rem;
+    margin: 0.625rem;
+    padding: 1.25rem;
+  }
+
 
 
 
@@ -695,6 +799,7 @@ label {
   /* BUTTONS */
   a.peking-button--cta {
     bottom: 0;
+    display: unset;
     font-size: 1rem;
     font-weight: bold;
     left: 75%;
@@ -703,4 +808,10 @@ label {
     width: auto;
   }
 
+
+
+  /* FORMS */
+  .form-control {
+    width: 24rem;
+  }
 }

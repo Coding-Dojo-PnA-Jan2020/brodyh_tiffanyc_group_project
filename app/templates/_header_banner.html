@@ -1,17 +1,19 @@
 <div class="header-banner navbar navbar-expand">
   <div class="container">
+
+    {# Left - Contact Information #}
     <div class="header-contact">
-      <p><i class="fas fa-map-marker-alt"></i>2630 Hegal Place, Alexandria, Virginia, 23242 &nbsp &nbsp | <a href="tel:555-867-5309"><i class="fas fa-phone"></i>555-867-5309</a></p>
+      <p><i class="fas fa-map-marker-alt"></i>2630 Hegal Place, Alexandria, Virginia, 23242 &nbsp &nbsp | <a href="tel:555-867-5309"><i class="fas fa-phone"></i>555&#8209;867&#8209;5309</a></p>
     </div>
+
+    {# Right - Account/Sign In #}
     <div class="header-account">
-      <ul class="navbar-nav">
-        <li class="order navbar-item"><a class="nav-link" href="/users/new">ORDER NOW</a></li>
-        {% if current_user is not none %}
-          <li class="my-account navbar-item"><a class="nav-link" href="/my-account">MY ACCOUNT</a></li>
-        {% else %}
-          <li class="sign-in navbar-item"><a class="nav-link" href="/sessions/new">SIGN IN</a></li>
-        {% endif %}
-      </ul>
+      {% if current_user is not none %}
+        <p class="my-account"><a href="/my-account">MY ACCOUNT</a>&nbsp;|&nbsp;</p>
+        <p class="my-account"><a href="/sessions/destroy"> SIGN OUT</a></p>
+      {% else %}
+        <p class="sign-in"><a href="{{ url_for('sessions.new') }}">SIGN IN</a></p>
+      {% endif %}
     </div>
   </div>
 </div>

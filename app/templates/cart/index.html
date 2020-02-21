@@ -1,16 +1,19 @@
 {% extends 'layout.html' %}
-{% block head_title %}Menu{% endblock %}
+{% block head_title %}Cart{% endblock %}
 
 {% block content %}
   <div class="page-header">
-    <h1>Menu</h1>
+    <h2>Cart</h2>
   </div>
   {% if current_user is defined %}
-    <div class="btn-toolbar mb-4">
-      <div class="btn-group mr-2">
-        <a href="{{ url_for('cart.checkout') }}" class="btn btn-dark"><i class="fas fa-credit-card"></i> Checkout</a>
-      </div>
+    <div>
+      <a href="{{ url_for('cart.checkout') }}" class="btn peking-button peking-button--checkout"><i class="fas fa-credit-card"></i> Checkout</a>
     </div>
   {% endif %}
-  {% include 'menuitems/_show_many.html' %}
+
+  {% if menuitems|length > 0 %}
+    {% include 'cart/_show_many_menuitems.html' %}
+  {% else %}
+    {% include 'cart/_empty_cart.html' %}
+  {% endif %}
 {% endblock %}

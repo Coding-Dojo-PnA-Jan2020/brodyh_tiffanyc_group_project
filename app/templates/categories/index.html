@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% block head_title %}Menu{% endblock %}
+
+{% block content %}
+  {% include '_sub_nav.html' %}
+  <div class="page-header">
+    <h2>MENU</h2>
+  </div>
+  {% if current_user is defined and current_user.is_admin %}
+    <div class="btn-toolbar mb-4">
+      <div class="btn-group mr-2">
+        <a href="{{ url_for('categories.new') }}" class="btn btn-dark"><i class="fas fa-plus"></i> New</a>
+      </div>
+    </div>
+  {% endif %}
+  {% include 'categories/_show_many.html' %}
+{% endblock %}

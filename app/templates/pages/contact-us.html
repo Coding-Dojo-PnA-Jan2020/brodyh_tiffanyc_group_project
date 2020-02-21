@@ -1,0 +1,89 @@
+{% extends 'layout.html' %}
+{% block head_title %}Contact Us{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <h2>Contact Us</h2>
+  {# Left - Contact Form and Map #}
+  <div class="contact-form-map">
+
+    {# Contact Form #}
+    <div class="contact-us-form">
+      <form class="form-container" action="#">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name" name="name" placeholder="Name" autofocus = "" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="text" class="form-control" id="email" name="email" placeholder="Email address" required>
+        </div>
+        <div class="form-group">
+          <label for="comment">Comment</label>
+          <textarea class="form-control" id="comment" name="comment" rows="5" placeholder="What's on your mind?" required></textarea>
+        </div>
+        <div class="form-group"> 
+          <button type="submit" class="btn peking-button peking-button--contact">Submit</button>
+        </div>
+      </form>
+    </div>
+
+    {# Map #}
+    <div id="map">
+      <script>
+        // Initialize and add the map
+        function initMap() {
+          // The location of Peking
+          var peking = {lat: 38.804660, lng: -77.043610};
+          // The map, centered at Peking
+          var map = new google.maps.Map(
+              document.getElementById('map'), {zoom: 15, center: peking});
+          // The marker, positioned at Peking
+          var marker = new google.maps.Marker({position: peking, map: map, title:"Peking Restaurant"});
+        }
+        </script>
+        <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9ZQzGz6TwVvEdptPAsKpC2uxv2CHsHSw&callback=initMap">
+        </script>
+    </div>
+  </div>
+
+  {# Right - Hours and Contact information #}
+  <div class="hours-contact">
+
+    {# Hours #}
+    <div class="open-hours">
+      <h3>HOURS</h3>
+      <p><b>Dine-in and Delivery:</b></p>
+      <ul class="day-of-week-hours">
+        <li class="day">Monday: 11:00am-9:00pm</li>
+        <li class="day">Tuesday: 11:00am-9:00pm</li>
+        <li class="day">Wednesday: 11:00am-9:00pm</li>
+        <li class="day">Thursday: 11:00am-9:00pm</li>
+        <li class="day">Friday: 11:00am-11:00pm</li>
+        <li class="day">Saturday: 11:00am-11:00pm</li>
+        <li class="day">Sunday: 11:00am-8:00pm</li>
+      </ul>
+    </div>
+
+    {# Payment Methods #}
+    <div class="payment-methods">
+      <p><b>We gladly accept:</b></p>
+      <img src="{{ url_for('static', filename='assets/img/visa.svg') }}" alt="Visa payment">
+      <img src="{{ url_for('static', filename='assets/img/mastercard.svg') }}" alt="Mastercard payment">
+      <img src="{{ url_for('static', filename='assets/img/american-express.svg') }}" alt="American Express payment">
+    </div>
+
+    {# Contact Information #}
+    <div class="main-contact">
+      <h3>CONTACT US</h3>
+      <p><i class="fas fa-map-marker-alt"></i>2630 Hegal Place, <br> Alexandria, Virginia, 23242</p>
+      <p><a href="https://goo.gl/maps/ddaf6JsoJPxr9FiaA" target="blank"><i class="fas fa-directions"></i>Get Directions</a></p>
+      <p><a href="tel:555-867-5309"><i class="fas fa-phone"></i>555&#8209;867&#8209;5309</a></p>
+      <p><a href="mailto:support@peking-restaurant.com"><i class="fas fa-envelope"></i>support@peking-restaurant.com</a></p>
+    </div>
+
+  </div>
+
+</div>
+{% endblock %}

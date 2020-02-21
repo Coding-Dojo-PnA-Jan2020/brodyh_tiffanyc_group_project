@@ -1,7 +1,8 @@
 from flask import Blueprint, request, render_template, flash, g, session, redirect, url_for
 from app import db
-from app.mod_menuitems.models import Menuitem
 from app.mod_orders.forms import CartToOrderForm
+from app.mod_categories.models import Category
+from app.mod_menuitems.models import Menuitem
 from app.mod_orders.models import Order, OrderMenuitem
 
 mod_cart = Blueprint('cart', __name__, url_prefix = '/cart')
@@ -16,29 +17,33 @@ def index():
 
 @mod_cart.route('/checkout')
 def checkout():
-    if 'cart_menuitem_ids' in session:
-        menuitems = Menuitem.query.filter(Menuitem.id.in_(session['cart_menuitem_ids'])).all()
-        form = CartToOrderForm(request.form)
-        return render_template('cart/checkout.html', menuitems = menuitems, form = form)
-    else:
+    if 'user_id' in session:
+        if 'cart_menuitem_ids' in session:
+            if not session['cart_menuitem_ids'] == []:
+                menuitems = Menuitem.query.filter(Menuitem.id.in_(session['cart_menuitem_ids'])).all()
+                form = CartToOrderForm(request.form)
+                return render_template('cart/checkout.html', menuitems = menuitems, form = form)
+        flash('Please add menu items to the cart before checking out', 'main')
         return redirect(url_for('cart.index'))
+    flash('Please sign in before checking out', 'main')
+    return redirect(url_for('sessions.new'))
 
 @mod_cart.route('/add/?menuitem=<id>', methods = ['POST'])
 def add(id):
+    menuitem = Menuitem.query.filter_by(id = id).first()
+    category = Category.query.filter_by(id = menuitem.category_id).first()
+
     if 'cart_menuitem_ids' not in session:
         session['cart_menuitem_ids'] = []
-
     cart_menuitem_ids = session['cart_menuitem_ids']
     cart_menuitem_ids.append(id)
     session['cart_menuitem_ids'] = cart_menuitem_ids
-    print(session['cart_menuitem_ids'])
 
-    # Todo: Redirect to category
-    return redirect('/')
+    flash('Added to cart', 'main')
+    return redirect(url_for('categories.show', name = category.name))
 
 @mod_cart.route('/remove/?menuitem=<id>', methods = ['POST', 'DELETE'])
 def remove(id):
-    # Todo: Check over this
     if 'cart_menuitem_ids' not in session:
         session['cart_menuitem_ids'] = []
         cart_menuitem_ids = session['cart_menuitem_ids']
@@ -46,4 +51,5 @@ def remove(id):
         cart_menuitem_ids = session['cart_menuitem_ids']
         cart_menuitem_ids.remove(id)
 
+    flash('Removed from cart', 'main')
     return redirect(url_for('cart.index'))

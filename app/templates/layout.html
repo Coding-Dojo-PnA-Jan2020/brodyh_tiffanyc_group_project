@@ -3,7 +3,7 @@
 
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block head_title %}{% endblock %} — Peking Restaurant</title>
 
     {# Load our base styles but block rendering - essential base stylesheets #}
@@ -14,16 +14,22 @@
     {# Load our custom styles and icons but dont' block page rendering (async) #}
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Acme&display=swap" crossorigin="anonymous" onload="this.rel='stylesheet'">
     <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" onload="this.rel='stylesheet'">
+    <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" onload="this.rel='stylesheet'">
+    <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" integrity="sha384-kFOVy8VwOx8Hfs1KxGdQFnFfWoSiJ8lULYUkIEt+N/zfwYebtapxcZ+kHNSuajva" crossorigin="anonymous" onload="this.rel='stylesheet'">
     {# For non-JavaScript clients #}
     <noscript>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Acme&display=swap" crossorigin="anonymous">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" integrity="sha384-kFOVy8VwOx8Hfs1KxGdQFnFfWoSiJ8lULYUkIEt+N/zfwYebtapxcZ+kHNSuajva" crossorigin="anonymous">
     </noscript>
+    {# Favicon #}
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='assets/img/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='assets/img/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='assets/img/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='assets/img/site.webmanifest') }}">
   </head>
 
   <body>
-    {# Flash Messages #}
-    {% include '_flash_messages.html' %}
 
     {# Header Banner #}
     {% include '_header_banner.html' %}
@@ -31,10 +37,10 @@
     {# Nav #}
     {% include '_nav.html' %}
 
-
-
     {# Main Content #}
     <main class="main-body">
+        {# Flash Messages #}
+        {% include '_flash_messages.html' %}
       <div class="container pt-4">
         {% block content %}{% endblock %}
       </div>
@@ -47,6 +53,31 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr" integrity="sha384-UiZzAA+k9B6Xr4SykueV26lljeUk/hTx/fFNONRwB3Dt3dLDOXg8lQlbf/j8rB7B" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='js/flatpickr.js') }}"></script>
+    <script>
+      $(document).ready(function(){
+        $('.day-of-week-hours li:nth-child('+(((new Date().getDay()+6)%7)+1)+')').addClass('highlight-day')
+      });
+    </script>
+    <script> 
+      $("document").ready(function(){
+        setTimeout(function(){
+            $("div.flash-alert").remove();
+        }, 3000 ); // 3 secs
+    
+      });
+    </script>
+    <script type="text/javascript"> 
+      $('.currency-usd').each(function() { 
+          var monetary_value = $(this).text(); 
+          var i = new Intl.NumberFormat('en-US', { 
+              style: 'currency', 
+              currency: 'USD' 
+          }).format(monetary_value); 
+          $(this).text(i); 
+      }); 
+  </script>
   </body>
 
 </html>

@@ -1,11 +1,11 @@
 <nav class="sub-nav navbar navbar-expand">
   <div class="container">
     <ul class="navbar-nav">
-      <li class="nav-item"><a href="{{ url_for('menuitems.render_menu_appetizers') }}" class="nav-link">Appetizers</a></li>
-      <li class="nav-item"><a href="{{ url_for('menuitems.render_menu_soups_salads') }}" class="nav-link">Soups & Salads</a></li>
-      <li class="nav-item"><a href="{{ url_for('menuitems.render_menu_main_dishes') }}" class="nav-link">Signature Dishes</a></li>
-      <li class="nav-item"><a href="{{ url_for('menuitems.render_menu_desserts') }}" class="nav-link">Desserts</a></li>
-      <li class="nav-item"><a href="{{ url_for('menuitems.render_menu_drinks') }}" class="nav-link">Drinks</a></li>
+      {% for category in categories %}
+      <li class="nav-item">
+        <a href="{{ url_for('categories.show', name = category.name) }}" class="nav-link {% if request.path == '/menu/' + category.name %}active{% endif %}">{{ category.name }}</a>
+      </li>
+      {% endfor %}
     </ul>
   </div>
 </nav>

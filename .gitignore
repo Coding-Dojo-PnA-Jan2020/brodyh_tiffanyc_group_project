@@ -12,3 +12,6 @@ ehthumbs_vista.db
 env/
 __pycache__/
 *.py[cod]
+
+# Ignore uploads from development
+app/static/uploads/

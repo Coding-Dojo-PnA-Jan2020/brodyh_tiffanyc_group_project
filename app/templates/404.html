@@ -1,12 +1,9 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 Not Found</title>
-  </head>
+{% extends 'layout.html' %}
+{% block head_title %}404{% endblock %}
 
-  <body>
-    <h1>Not Found</h1>
-  </body>
-</html>
+{% block content %}
+<div class="page-header four-zero-four">
+  <h2>Not Found</h2>
+  <p> Uh, oh...something went wrong. Let's get you back to checking out our delicious <a class="menu-link" href="{{ url_for('categories.index') }}">menu</a>!</p>
+</div>
+{% endblock %}

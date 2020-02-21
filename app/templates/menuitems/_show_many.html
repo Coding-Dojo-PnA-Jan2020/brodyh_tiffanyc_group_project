@@ -1,17 +1,17 @@
-{% if menuitems|length > 0 %}
-  <div class="row">
+{% if menuitems|count > 0 %}
+  <div class="menu-overview">
     {% for menuitem in menuitems %}
-      <div class="col-sm-6 col-md-4 mb-4">
-        <div class="bg-light rounded">
-          <img src="https://via.placeholder.com/300x300.png?text=Photo" alt="{{ menuitem.name }}" class="img img-responsive rounded w-100">
-          <div class="mt-2">
-            <h2 class="h5 w-100">
-              {{ menuitem.name }}
-              <form action="{{ url_for('cart.add', id = menuitem.id) }}" method="post">
-                <input type="submit" value="Order" class="btn btn-dark pull-right">Order</input>
-              </form>
-            </h2>
-            <p>{{ menuitem.description }}</p>
+      <div class="card">
+        <img class="card-img-top menu-items-img" src="{{ url_for('static', filename = menuitem.image_url_path) }}" alt="{{ menuitem.name }}">
+        <div class="card-body">
+          <h4 class="card-title">{{ menuitem.name }}</h4>
+          <!-- <p class="card-text"><b><span class="currency-usd">{{ menuitem.price }}</span></b></p> -->
+          <p class="card-text menu-item-price"><b>{{ menuitem.price|pretty_price }}</b></p>
+          <p class="card-text menu-item-description">{{ menuitem.description }}</p>
+          <div class="card-footer-order">
+            <form action="{{ url_for('cart.add', id = menuitem.id) }}" method="post">
+              <input type="submit" value="Add to Order" class="btn peking-button peking-button--order">
+            </form>
           </div>
         </div>
       </div>

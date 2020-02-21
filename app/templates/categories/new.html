@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+{% block head_title %}New Category{% endblock %}
+
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block content %}
+<div class="page-header">
+  <h2>New Category</h2>
+</div>
+
+<form method="post" action="{{ url_for('categories.create') }}" accept-charset="utf-8" enctype="multipart/form-data" role="form">
+  {{ form.csrf_token }}
+  {% with errors = get_flashed_messages(category_filter = ['form_errors']) %}
+    {% if errors %}
+      <div class="alert alert-warning">
+        <ul class="list-unstyled">
+          {% for error in errors %}
+            <li>{{ error }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  {% endwith %}
+  {{ wtf.form_field(form.name, class = 'form-control', placeholder = 'Name', autofocus = '') }}
+  {{ wtf.form_field(form.image, class = 'form-control', placeholder = 'Photo') }}
+  <div class="form-group">
+    <input type="submit" value="Save" class="btn peking-button peking-button--add-catgeory">
+  </div>
+</form>
+{% endblock %}
